@@ -28,8 +28,8 @@ async function updateBotStatus(statusElementId, updateElementId) {
     if (statusText) statusText.innerText = "CONNECTING...";
 
     try {
-        // 1. Fetch the master status file using absolute path
-        const response = await fetch('../data/status.json');
+        // 1. Fetch the master status file using absolute path from site root
+        const response = await fetch('/data/status.json');
         if (!response.ok) throw new Error('Status configuration not found');
 
         const data = await response.json();
