@@ -12,20 +12,24 @@ async function updateBotStatus(statusElementId, updateElementId) {
     const waChatBtn = document.getElementById('wa-chat-btn');
     const tgChatBtn = document.getElementById('tg-chat-btn');
 
-    // Determine page context
-    const fileName = window.location.pathname.split('/').pop() || 'index.html';
+    // Determine page context based on folder name
+    const pathParts = window.location.pathname.split('/').filter(p => p);
+    const folderName = pathParts[0] || 'root';
+
     const pageIdMap = {
-        'alexa-v3.html': 'alexa-v3',
-        'alexatg.html': 'alexatg',
-        'alexaxmusic.html': 'alexaxmusic'
+        'alexa-v3': 'alexa-v3',
+        'alexatg': 'alexatg',
+        'alexaxmusic': 'alexaxmusic'
     };
-    const botId = pageIdMap[fileName];
+    const botId = pageIdMap[folderName];
+
+    if (!botId) return;
 
     if (statusText) statusText.innerText = "CONNECTING...";
 
     try {
-        // 1. Fetch the master status file (Secure Way)
-        const response = await fetch('data/status.json');
+        // 1. Fetch the master status file using absolute path
+        const response = await fetch('/data/status.json');
         if (!response.ok) throw new Error('Status configuration not found');
 
         const data = await response.json();
