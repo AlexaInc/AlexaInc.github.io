@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexa V3 | WhatsApp Automation Flagship</title>
+    <meta name="description"
+        content="Deep dive into Alexa V3 - The industry-leading WhatsApp automation bot by AlexaInc.">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="https://github.com/AlexaInc.png" type="image/png">
+    <style>
+        .realm-hero {
+            background: radial-gradient(circle at center, var(--glow-wa) 0%, transparent 70%);
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-glow"></div>
+    <div class="grid-overlay"></div>
+
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">AlexaInc<span style="color: var(--accent-wa);">.</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Ecosystem</a>
+                <a href="about.html" class="nav-link">About Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero realm-hero">
+            <div class="status-header">
+                <div class="status-badge status-wa">
+                    <span class="status-dot"></span>
+                    <span>System Status: <span id="bot-status-text"
+                            style="color: var(--accent-wa); font-weight: 700;">FETCHING...</span></span>
+                </div>
+                <div id="bot-update-text" class="mono"
+                    style="font-size: 0.75rem; opacity: 0; transition: opacity 0.5s;">
+                    Scanning...</div>
+            </div>
+            <div class="pill automation" style="margin-bottom: 1.5rem;">WhatsApp Flagship</div>
+            <h1 style="color: var(--accent-wa);">Alexa V3</h1>
+            <p>The pinnacle of WhatsApp automation. Engineered for speed,
+                security, and a superior user experience.</p>
+
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/94705327164" id="wa-chat-btn" target="_blank" class="btn btn-primary"
+                    style="background: var(--accent-wa); color: #000; display: flex; align-items: center; gap: 0.5rem;">
+                    <span>Chat with Bot</span>
+                </a>
+                <a href="https://github.com/AlexaInc/alexa-v3" class="btn btn-outline">View Source Code</a>
+                <a href="#features" class="btn btn-outline">Explore Features</a>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="grid-2">
+                <div class="glass-panel" style="padding: 2rem;">
+                    <h2 style="color: var(--accent-wa); margin-bottom: 2rem;">Why Alexa V3?</h2>
+                    <div class="feature-item">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">⚡ Ultra-Fast Processing</h3>
+                        <p style="color: var(--text-secondary);">Optimized Node.js core ensures near-instant response
+                            times for every command.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">🛡️ Advanced Management</h3>
+                        <p style="color: var(--text-secondary);">Complete group administration suite with anti-link,
+                            anti-spam, and automated welcomes.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">📦 Media Master</h3>
+                        <p style="color: var(--text-secondary);">Direct downloads from YouTube, Instagram, and more,
+                            straight to your chat.</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel" style="padding: 2rem; border-color: var(--glow-wa);">
+                    <h2 style="color: var(--accent-wa); margin-bottom: 2rem;">Technical Specs</h2>
+                    <ul class="mono" style="list-style: none; display: flex; flex-direction: column; gap: 1.5rem;">
+                        <li><span style="color: var(--accent-wa)">[01]</span> Language: JavaScript (Node.js)</li>
+                        <li><span style="color: var(--accent-wa)">[02]</span> Library: Baileys (Multi-Device)</li>
+                        <li><span style="color: var(--accent-wa)">[03]</span> Architecture: Modular Plugin System</li>
+                        <li><span style="color: var(--accent-wa)">[04]</span> Compatibility: Linux, Windows, Android
+                            (Termux)</li>
+                    </ul>
+
+                    <div
+                        style="margin-top: 3rem; padding: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px dashed var(--accent-wa);">
+                        <p class="mono" style="font-size: 0.9rem; opacity: 0.8;">"Built for the community, powered by
+                            AlexaInc engines."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin-top: 4rem;">
+            <a href="index.html" class="btn btn-outline">← Back to Ecosystem</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="padding: 4rem 0; border-top: 1px solid var(--border-color); text-align: center;">
+            <p class="mono" style="opacity: 0.6;">© 2026 Hansaka Rasanjana (AlexaInc). Built for the Decentralized
+                Social World.</p>
+        </div>
+    </footer>
+    <script src="status.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlexaTG | Telegram Intelligence & AI</title>
+    <meta name="description"
+        content="Explore AlexaTG - The specialized Telegram bot for Group Management, AI, and Gaming.">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="https://github.com/AlexaInc.png" type="image/png">
+    <style>
+        .realm-hero {
+            background: radial-gradient(circle at center, var(--glow-tg) 0%, transparent 70%);
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-glow"></div>
+    <div class="grid-overlay"></div>
+
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">AlexaInc<span style="color: var(--accent-tg);">.</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Ecosystem</a>
+                <a href="about.html" class="nav-link">About Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero realm-hero">
+            <div class="status-header">
+                <div class="status-badge status-tg">
+                    <span class="status-dot"></span>
+                    <span>System Status: <span id="bot-status-text"
+                            style="color: var(--accent-tg); font-weight: 700;">FETCHING...</span></span>
+                </div>
+                <div id="bot-update-text" class="mono"
+                    style="font-size: 0.75rem; opacity: 0; transition: opacity 0.5s;">
+                    Scanning...</div>
+            </div>
+            <div class="pill special" style="margin-bottom: 1.5rem;">Telegram Intelligence</div>
+            <h1 style="color: var(--accent-tg);">AlexaTG</h1>
+            <p>Beyond simple automation. AlexaTG brings AI-driven management
+                and interactive gaming to your Telegram groups.</p>
+
+            <div style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://t.me/alexaIncbot" id="tg-chat-btn" target="_blank" class="btn btn-primary"
+                    style="background: var(--accent-tg); color: #fff; display: flex; align-items: center; gap: 0.5rem;">
+                    <span>Chat with Bot</span>
+                </a>
+                <a href="https://github.com/AlexaInc/alexatg" class="btn btn-outline"
+                    style="border-color: var(--accent-tg);">View Source Code</a>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="grid-2">
+                <div class="glass-panel" style="padding: 2rem; border-color: var(--glow-tg);">
+                    <h2 style="color: var(--accent-tg); margin-bottom: 2rem;">Core Intelligence</h2>
+                    <div class="feature-item">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">🤖 Environmental AI</h3>
+                        <p style="color: var(--text-secondary);">Context-aware interactions that make group chats feel
+                            alive and responsive.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">🎮 Interactive Games</h3>
+                        <p style="color: var(--text-secondary);">Engage your community with built-in RPG elements,
+                            trivia, and competitive mini-games.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">🏛️ Professional Admin</h3>
+                        <p style="color: var(--text-secondary);">Robust security logging and advanced permission
+                            management for large-scale groups.</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel" style="padding: 2rem;">
+                    <h2 style="color: var(--accent-tg); margin-bottom: 2rem;">Developer Profile</h2>
+                    <ul class="mono" style="list-style: none; display: flex; flex-direction: column; gap: 1.5rem;">
+                        <li><span style="color: var(--accent-tg)">[#]</span> Runtime: Node.js (High Efficiency)</li>
+                        <li><span style="color: var(--accent-tg)">[#]</span> Interface: Telegraf / Telegram API</li>
+                        <li><span style="color: var(--accent-tg)">[#]</span> AI Backend: GPT-Integrated Logic</li>
+                        <li><span style="color: var(--accent-tg)">[#]</span> DB: Low-latency storage for stats</li>
+                    </ul>
+
+                    <div
+                        style="margin-top: 3rem; padding: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px dashed var(--accent-tg);">
+                        <p class="mono" style="font-size: 0.9rem; opacity: 0.8;">"Elevating Telegram communication
+                            through intelligent automation."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin-top: 4rem;">
+            <a href="index.html" class="btn btn-outline">← Back to Ecosystem</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="padding: 4rem 0; border-top: 1px solid var(--border-color); text-align: center;">
+            <p class="mono" style="opacity: 0.6;">© 2026 Hansaka Rasanjana (AlexaInc). Built for the Decentralized
+                Social World.</p>
+        </div>
+    </footer>
+    <script src="status.js"></script>
+</body>
+
+</html>

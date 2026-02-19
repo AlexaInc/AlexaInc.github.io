@@ -1,0 +1,99 @@
+name: Update Bot Status
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' # Runs every 15 minutes
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Create data directory
+        run: mkdir -p data
+
+      - name: Fetch WhatsApp (Koyeb) Status
+        run: |
+          STATUS_JSON=$(curl -s "https://frozen-ilysa-alexainclk-c22bf93f.koyeb.app/status")
+          PHONE_JSON=$(curl -s "https://frozen-ilysa-alexainclk-c22bf93f.koyeb.app/get-phone-number")
+          
+          # Use jq to extract values or set defaults
+          WA_STATUS=$(echo $STATUS_JSON | jq -r '.status // "OFFLINE"')
+          WA_PHONE=$(echo $PHONE_JSON | jq -r '.phoneNumber // "94705327164"')
+          
+          echo "WA_STATUS=$WA_STATUS" >> $GITHUB_ENV
+          echo "WA_PHONE=$WA_PHONE" >> $GITHUB_ENV
+
+      - name: Fetch AlexaTG Status
+        run: |
+          RESPONSE=$(curl -s "https://api.telegram.org/bot${{ secrets.TG_TOKEN_TG }}/getWebhookInfo")
+          OK=$(echo $RESPONSE | jq -r '.ok')
+          PENDING=$(echo $RESPONSE | jq -r '.result.pending_update_count // 0')
+          
+          if [ "$OK" = "true" ]; then
+            if [ "$PENDING" -lt 50 ]; then
+              STATUS="ONLINE"
+              UPDATE="Processing messages normally"
+            else
+              STATUS="DELAYED"
+              UPDATE="$PENDING updates pending (Lagging)"
+            fi
+          else
+            STATUS="OFFLINE"
+            UPDATE="API Unreachable"
+          fi
+          echo "TG_STATUS=$STATUS" >> $GITHUB_ENV
+          echo "TG_UPDATE=$UPDATE" >> $GITHUB_ENV
+
+      - name: Fetch Alexa Music Status
+        run: |
+          RESPONSE=$(curl -s "https://api.telegram.org/bot${{ secrets.TG_TOKEN_MUSIC }}/getWebhookInfo")
+          OK=$(echo $RESPONSE | jq -r '.ok')
+          PENDING=$(echo $RESPONSE | jq -r '.result.pending_update_count // 0')
+          
+          if [ "$OK" = "true" ]; then
+            if [ "$PENDING" -lt 50 ]; then
+              STATUS="ONLINE"
+              UPDATE="Processing messages normally"
+            else
+              STATUS="DELAYED"
+              UPDATE="$PENDING updates pending (Lagging)"
+            fi
+          else
+            STATUS="OFFLINE"
+            UPDATE="API Unreachable"
+          fi
+          echo "MUSIC_STATUS=$STATUS" >> $GITHUB_ENV
+          echo "MUSIC_UPDATE=$UPDATE" >> $GITHUB_ENV
+
+      - name: Generate status.json
+        run: |
+          cat <<EOF > data/status.json
+          {
+            "alexa-v3": {
+              "status": "${{ env.WA_STATUS }}",
+              "update": "System: Active & Responsive",
+              "phoneNumber": "${{ env.WA_PHONE }}"
+            },
+            "alexatg": {
+              "status": "${{ env.TG_STATUS }}",
+              "update": "${{ env.TG_UPDATE }}"
+            },
+            "alexaxmusic": {
+              "status": "${{ env.MUSIC_STATUS }}",
+              "update": "${{ env.MUSIC_UPDATE }}"
+            },
+            "last_check": "$(date -u)"
+          }
+          EOF
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add data/status.json
+          git commit -m "chore: update bot status [skip ci]" || echo "No changes to commit"
+          git push

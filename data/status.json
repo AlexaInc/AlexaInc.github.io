@@ -1,0 +1,16 @@
+{
+    "alexa-v3": {
+        "status": "ONLINE",
+        "update": "System: Active & Responsive",
+        "phoneNumber": "94705327164"
+    },
+    "alexatg": {
+        "status": "ONLINE",
+        "update": "Processing messages normally"
+    },
+    "alexaxmusic": {
+        "status": "ONLINE",
+        "update": "Processing messages normally"
+    },
+    "last_check": "Initial Setup"
+}
