@@ -29,7 +29,7 @@ async function updateBotStatus(statusElementId, updateElementId) {
 
     try {
         // 1. Fetch the master status file using absolute path
-        const response = await fetch('./data/status.json');
+        const response = await fetch('../data/status.json');
         if (!response.ok) throw new Error('Status configuration not found');
 
         const data = await response.json();
