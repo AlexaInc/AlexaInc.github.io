@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNOWSTORM - AlexaInc</title>
+    <link rel="stylesheet" href="../index.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@500&family=Outfit:wght@600&display=swap"
+        rel="stylesheet">
+    <style>
+        .hero-section {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+        }
+
+        .mechanics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mechanic-card {
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            background: rgba(255, 255, 255, 0.02);
+            transition: var(--transition);
+        }
+
+        .mechanic-card:hover {
+            border-color: var(--accent-snow);
+            transform: translateY(-5px);
+            background: rgba(14, 165, 233, 0.05);
+        }
+
+        .specs-table {
+            width: 100%;
+            margin-top: 2rem;
+            border-collapse: collapse;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .specs-table th {
+            color: var(--accent-snow);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .btn-snow {
+            background: var(--accent-snow) !important;
+            color: #fff !important;
+            border: none !important;
+            box-shadow: 0 0 20px var(--glow-snow);
+        }
+
+        .btn-snow:hover {
+            box-shadow: 0 0 30px var(--accent-snow);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-snow:hover {
+            border-color: var(--accent-snow) !important;
+            background: rgba(14, 165, 233, 0.05) !important;
+            color: var(--accent-snow) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">AlexaInc<span style="color: var(--accent-snow);">.</span></a>
+            <div class="nav-links">
+                <a href="/#ecosystem" class="nav-link" data-i18n="nav_ecosystem">Ecosystem</a>
+                <a href="/about/" class="nav-link" data-i18n="nav_about">About Me</a>
+                <!-- Language Switcher placeholder -->
+                <div class="lang-switcher">
+                    <button class="lang-btn" id="lang-btn">EN</button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button onclick="setLanguage('en')">English</button>
+                        <button onclick="setLanguage('si')">සිංහල</button>
+                        <button onclick="setLanguage('ta')">தமிழ்</button>
+                        <button onclick="setLanguage('fr')">Français</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <div class="hero-icon" style="color: var(--accent-snow); margin-bottom: 2rem;">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="80" height="80">
+                    <path
+                        d="M11 11.127l1-1 1 1V13h-2v-1.873zm1.5-7.127a.5.5 0 0 0-1 0v1.12c-.524.085-1.022.254-1.48.5l-.8-.8a.5.5 0 1 0-.707.707l.8.8c-.246.458-.415.956-.5 1.48h-1.12a.5.5 0 1 0 0 1h1.12c.085.524.254 1.022.5 1.48l-.8.8a.5.5 0 1 0 .707.707l.8-.8c.458.246.956.415 1.48.5v1.12a.5.5 0 0 0 1 0v-1.12c.524-.085 1.022-.254 1.48-.5l.8.8a.5.5 0 0 0 .707-.707l-.8-.8c.246-.458.415-.956.5-1.48h1.12a.5.5 0 0 0 0-1h-1.12c-.085-.524-.254-1.022-.5-1.48l.8-.8a.5.5 0 0 0-.707-.707l-.8.8c-.458-.246-.956-.415-1.48-.5V4zm-1.5 5h3c.828 0 1.5.672 1.5 1.5V17a3 3 0 0 1-3 3h-3a3 3 0 0 1-3-3v-6.5c0-.828.672-1.5 1.5-1.5h1.5v-.5z" />
+                </svg>
+            </div>
+            <div class="pill snow" style="margin-bottom: 1.5rem;" data-i18n="snowstorm_pill">Winter Survival</div>
+            <h1 style="color: var(--accent-snow);" data-i18n="snowstorm_h1">SNOWSTORM Battle</h1>
+            <p data-i18n="snowstorm_desc">A tactical winter survival battle royale on Telegram. Scavenge for resources,
+                build fires to survive the freezing cold, and outlast your rivals in the ultimate storm.</p>
+
+            <div style="margin-top: 3rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://t.me/SnowstormBattleBot" class="btn btn-snow"
+                    style="display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.13-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z" />
+                    </svg>
+                    Play on Telegram
+                </a>
+                <a href="#features" class="btn btn-outline btn-outline-snow" data-i18n="explore_features">Explore
+                    Features</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="features" style="padding: 4rem 0;">
+            <h2 class="mono" style="text-align: center; margin-bottom: 3rem;" data-i18n="snowstorm_features">Survival
+                Mechanics</h2>
+            <div class="mechanics-grid">
+                <div class="mechanic-card">
+                    <h3 style="color: var(--accent-snow);">🌪 The Storm</h3>
+                    <p data-i18n="snowstorm_feature_storm">Dynamic temperature drops and lethal blizzards. Every round
+                        the cold intensifies, requiring tactical warmth management.</p>
+                </div>
+                <div class="mechanic-card">
+                    <h3 style="color: var(--accent-snow);">💀 The Reaper</h3>
+                    <p data-i18n="snowstorm_feature_reaper">A mysterious entity that eliminated the weakest. If you're
+                        at the bottom of the HP list in Round 5, you're gone.</p>
+                </div>
+                <div class="mechanic-card">
+                    <h3 style="color: var(--accent-snow);">💰 Tactical Economy</h3>
+                    <p data-i18n="snowstorm_feature_economy">Loot, shop, and manage rare survival gear. Use points from
+                        victories to buy powerful skills and items.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 4rem 0;">
+            <h2 class="mono" style="margin-bottom: 2rem;">Survival Gear</h2>
+            <div class="glass-panel" style="padding: 1rem; overflow-x: auto;">
+                <table class="specs-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Cost</th>
+                            <th>Effect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🩹 Bandage</td>
+                            <td>300</td>
+                            <td>Heals 30 HP</td>
+                        </tr>
+                        <tr>
+                            <td>💉 Medkit</td>
+                            <td>1000</td>
+                            <td>Heals 60 HP</td>
+                        </tr>
+                        <tr>
+                            <td>💊 Stim Injector</td>
+                            <td>3500</td>
+                            <td>Heals 100 HP</td>
+                        </tr>
+                        <tr>
+                            <td>🔪 Rusty Shiv</td>
+                            <td>600</td>
+                            <td>35 Damage</td>
+                        </tr>
+                        <tr>
+                            <td>💣 Frag Grenade</td>
+                            <td>2000</td>
+                            <td>55 Damage</td>
+                        </tr>
+                        <tr>
+                            <td>🎯 AWP Sniper</td>
+                            <td>5000</td>
+                            <td>85 Damage</td>
+                        </tr>
+                        <tr>
+                            <td>🚀 Golden RPG</td>
+                            <td>12000</td>
+                            <td>99 Damage</td>
+                        </tr>
+                        <tr>
+                            <td>🧱 Titanium Bunker</td>
+                            <td>2500</td>
+                            <td>Storm Immunity</td>
+                        </tr>
+                        <tr>
+                            <td>📡 Satellite Link</td>
+                            <td>4000</td>
+                            <td>Supply Drop</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section style="text-align: center; margin-top: 4rem; padding-bottom: 4rem;">
+            <a href="/" class="btn btn-outline btn-outline-snow" data-i18n="back_ecosystem">← Back to Ecosystem</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="mono" style="opacity: 0.5; font-size: 0.8rem;" data-i18n="copyright">© 2026 Hansaka Rasanjana
+                (AlexaInc). Built for the Decentralized Social World.</p>
+        </div>
+    </footer>
+
+    <script src="../lang.js"></script>
+</body>
+
+</html>

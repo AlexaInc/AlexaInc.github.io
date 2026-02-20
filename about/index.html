@@ -19,17 +19,27 @@
         <div class="container">
             <a href="/" class="logo">AlexaInc<span style="color: var(--accent-wa);">.</span></a>
             <div class="nav-links">
-                <a href="/" class="nav-link">Ecosystem</a>
-                <a href="/about/" class="nav-link active">About Me</a>
+                <a href="/" class="nav-link" data-i18n="nav_ecosystem">Ecosystem</a>
+                <a href="/about/" class="nav-link active" data-i18n="nav_about">About Me</a>
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button class="lang-btn" id="lang-btn">EN</button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button onclick="setLanguage('en')">English</button>
+                        <button onclick="setLanguage('si')">සිංහල</button>
+                        <button onclick="setLanguage('ta')">தமிழ்</button>
+                        <button onclick="setLanguage('fr')">Français</button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
     <main class="container">
         <section class="hero realm-hero">
-            <div class="pill dev">The Human Behind The Code</div>
-            <h1>Hansaka Rasanjana</h1>
-            <p>Frontend Developer & Node.js Enthusiast based in Sri Lanka.</p>
+            <div class="pill dev" data-i18n="about_pill">The Human Behind The Code</div>
+            <h1 data-i18n="about_h1">Hansaka Rasanjana</h1>
+            <p data-i18n="about_p">Frontend Developer & Node.js Enthusiast based in Sri Lanka.</p>
         </section>
 
         <section id="biography" style="padding-top: 0;">
@@ -39,8 +49,9 @@
                 </div>
 
                 <div class="glass-panel">
-                    <h2 style="margin-bottom: 1.5rem; font-size: 2rem;">Aspiring Web Developer</h2>
-                    <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <h2 style="margin-bottom: 1.5rem; font-size: 2rem;" data-i18n="about_bio_h2">Aspiring Web Developer
+                    </h2>
+                    <p style="margin-bottom: 1.5rem; color: var(--text-secondary);" data-i18n="about_bio_p1">
                         I am a recent A/L qualifier with a deep passion for software engineering. I have developed a
                         solid technical base in <strong>Node.js</strong> and <strong>Frontend frameworks</strong>
                         through independent study and hands-on projects.
@@ -52,7 +63,7 @@
                         my coding knowledge in a fast-paced tech environment.
                     </p>
 
-                    <h3 style="margin-top: 2.5rem; font-size: 1.25rem;">Core Expertise</h3>
+                    <h3 style="margin-top: 2.5rem; font-size: 1.25rem;" data-i18n="about_expertise">Core Expertise</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Node.js</span>
                         <span class="skill-tag">Web Design</span>
@@ -65,7 +76,8 @@
 
                     <div class="about-stats-grid">
                         <div class="glass-panel" style="padding: 1.5rem;">
-                            <h4 style="font-size: 1rem; margin-bottom: 1rem;">Educational History</h4>
+                            <h4 style="font-size: 1rem; margin-bottom: 1rem;" data-i18n="edu_history">Educational
+                                History</h4>
                             <div class="mono" style="font-size: 0.85rem; opacity: 0.8;">
                                 <div style="color: #fff; font-weight: 700;">St. Anne's College Kurunegala</div>
                                 <div>Jan 2017 - May 2025</div>
@@ -73,7 +85,8 @@
                             </div>
                         </div>
                         <div class="glass-panel" style="padding: 1.5rem;">
-                            <h4 style="font-size: 1rem; margin-bottom: 1rem;">Certifications</h4>
+                            <h4 style="font-size: 1rem; margin-bottom: 1rem;" data-i18n="certifications">Certifications
+                            </h4>
                             <div class="mono" style="font-size: 0.85rem; opacity: 0.8;">
                                 <div style="color: #fff; font-weight: 700;">Web Design for Beginners</div>
                                 <div>University of Moratuwa (2025)</div>
@@ -93,8 +106,9 @@
 
         <section id="vision" style="text-align: center;">
             <div class="glass-panel" style="max-width: 800px; margin: 0 auto; border-color: var(--glow-wa);">
-                <h3 style="color: var(--accent-wa); margin-bottom: 1rem;">The Mission</h3>
-                <p style="font-size: 1.1rem;">"To apply cutting-edge coding knowledge to solve real-world problems and
+                <h3 style="color: var(--accent-wa); margin-bottom: 1rem;" data-i18n="mission_title">The Mission</h3>
+                <p style="font-size: 1.1rem;" data-i18n="mission_desc">"To apply cutting-edge coding knowledge to solve
+                    real-world problems and
                     grow within the fast-paced evolution of the tech industry."</p>
             </div>
         </section>
@@ -102,9 +116,11 @@
 
     <footer>
         <div class="container" style="padding: 4rem 0; border-top: 1px solid var(--border-color); text-align: center;">
-            <p class="mono" style="opacity: 0.6;">© 2026 Hansaka Rasanjana (AlexaInc). All Rights Reserved.</p>
+            <p class="mono" style="opacity: 0.6;" data-i18n="copyright">© 2026 Hansaka Rasanjana (AlexaInc). All Rights
+                Reserved.</p>
         </div>
     </footer>
+    <script src="/lang.js"></script>
     <script src="/chat.js"></script>
 </body>
 

@@ -33,8 +33,18 @@
         <div class="container">
             <a href="/" class="logo">AlexaInc<span style="color: var(--accent-music);">.</span></a>
             <div class="nav-links">
-                <a href="/" class="nav-link">Ecosystem</a>
-                <a href="/about/" class="nav-link">About Me</a>
+                <a href="/" class="nav-link" data-i18n="nav_ecosystem">Ecosystem</a>
+                <a href="/about/" class="nav-link" data-i18n="nav_about">About Me</a>
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button class="lang-btn" id="lang-btn">EN</button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button onclick="setLanguage('en')">English</button>
+                        <button onclick="setLanguage('si')">සිංහල</button>
+                        <button onclick="setLanguage('ta')">தமிழ்</button>
+                        <button onclick="setLanguage('fr')">Français</button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -44,15 +54,20 @@
             <div class="status-header">
                 <div class="status-badge status-music">
                     <span class="status-dot"></span>
-                    <span>System Status: <span id="bot-status-text"
+                    <span><span data-i18n="sys_status">System Status</span>: <span id="bot-status-text"
                             style="color: var(--accent-music); font-weight: 700;">FETCHING...</span></span>
                 </div>
                 <div id="bot-update-text" class="mono"
                     style="font-size: 0.75rem; opacity: 0; transition: opacity 0.5s;">
                     Scanning...</div>
             </div>
+            <div class="hero-icon" style="margin-bottom: 2rem;">
+                <img src="/assets/music-bot.png" alt="AlexaxMusic Icon"
+                    style="width: 100px; height: 100px; border-radius: 50%; box-shadow: 0 0 30px var(--glow-music);">
+            </div>
             <div class="pill special"
-                style="margin-bottom: 1.5rem; color: var(--accent-music); border-color: var(--glow-music);">Multimedia
+                style="margin-bottom: 1.5rem; color: var(--accent-music); border-color: var(--glow-music);"
+                data-i18n="music_pill">Multimedia
                 Excellence</div>
             <h1 style="color: var(--accent-music);">AlexaxMusic</h1>
             <p>High-fidelity audio streaming integrated directly into Telegram.
@@ -61,9 +76,9 @@
             <div style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="https://t.me/alexaIncbot" id="tg-chat-btn" target="_blank" class="btn btn-primary"
                     style="background: var(--accent-music); color: #fff; display: flex; align-items: center; gap: 0.5rem;">
-                    <span>Chat with Bot</span>
+                    <span data-i18n="chat_bot">Chat with Bot</span>
                 </a>
-                <a href="https://github.com/AlexaInc/AlexaxMusic" class="btn btn-outline"
+                <a href="https://github.com/AlexaInc/AlexaxMusic" class="btn btn-outline" data-i18n="view_source"
                     style="border-color: var(--accent-music);">View Source Code</a>
             </div>
         </section>
@@ -108,7 +123,7 @@
         </section>
 
         <section style="text-align: center; margin-top: 4rem;">
-            <a href="/" class="btn btn-outline">← Back to Ecosystem</a>
+            <a href="/" class="btn btn-outline" data-i18n="back_ecosystem">← Back to Ecosystem</a>
         </section>
     </main>
 
@@ -119,6 +134,7 @@
         </div>
     </footer>
     <script src="/status.js"></script>
+    <script src="/lang.js"></script>
     <script src="/chat.js"></script>
 </body>
 

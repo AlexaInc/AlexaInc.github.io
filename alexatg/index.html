@@ -33,8 +33,18 @@
         <div class="container">
             <a href="/" class="logo">AlexaInc<span style="color: var(--accent-tg);">.</span></a>
             <div class="nav-links">
-                <a href="/" class="nav-link">Ecosystem</a>
-                <a href="/about/" class="nav-link">About Me</a>
+                <a href="/" class="nav-link" data-i18n="nav_ecosystem">Ecosystem</a>
+                <a href="/about/" class="nav-link" data-i18n="nav_about">About Me</a>
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button class="lang-btn" id="lang-btn">EN</button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button onclick="setLanguage('en')">English</button>
+                        <button onclick="setLanguage('si')">සිංහල</button>
+                        <button onclick="setLanguage('ta')">தமிழ்</button>
+                        <button onclick="setLanguage('fr')">Français</button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -44,12 +54,19 @@
             <div class="status-header">
                 <div class="status-badge status-tg">
                     <span class="status-dot"></span>
-                    <span>System Status: <span id="bot-status-text"
+                    <span><span data-i18n="sys_status">System Status</span>: <span id="bot-status-text"
                             style="color: var(--accent-tg); font-weight: 700;">FETCHING...</span></span>
                 </div>
                 <div id="bot-update-text" class="mono"
                     style="font-size: 0.75rem; opacity: 0; transition: opacity 0.5s;">
                     Scanning...</div>
+            </div>
+            <div class="hero-icon" style="color: var(--accent-tg); margin-bottom: 2rem;">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="80" height="80">
+                    <path
+                        d="M11.944 0C5.346 0 0 5.346 0 11.944c0 6.598 5.346 11.944 11.944 11.944 6.598 0 11.944-5.346 11.944-11.944C23.888 5.346 18.542 0 11.944 0zm5.244 8.783l-1.884 8.878c-.14.613-.51.764-1.022.478l-2.87-2.116-1.385 1.333c-.154.154-.282.282-.58.282l.205-2.91 5.302-4.787c.23-.205-.05-.316-.358-.112l-6.55 4.125-2.822-.882c-.613-.193-.625-.613.128-.91l11.02-4.246c.51-.193.957.112.741 1.259z">
+                    </path>
+                </svg>
             </div>
             <div class="pill special" style="margin-bottom: 1.5rem;">Telegram Intelligence</div>
             <h1 style="color: var(--accent-tg);">AlexaTG</h1>
@@ -59,9 +76,9 @@
             <div style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="https://t.me/alexaIncbot" id="tg-chat-btn" target="_blank" class="btn btn-primary"
                     style="background: var(--accent-tg); color: #fff; display: flex; align-items: center; gap: 0.5rem;">
-                    <span>Chat with Bot</span>
+                    <span data-i18n="chat_bot">Chat with Bot</span>
                 </a>
-                <a href="https://github.com/AlexaInc/alexatg" class="btn btn-outline"
+                <a href="https://github.com/AlexaInc/alexatg" class="btn btn-outline" data-i18n="view_source"
                     style="border-color: var(--accent-tg);">View Source Code</a>
             </div>
         </section>
@@ -81,7 +98,15 @@
                             trivia, and competitive mini-games.</p>
                     </div>
                     <div class="feature-item">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">🏛️ Professional Admin</h3>
+                        <h3
+                            style="font-size: 1.2rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path
+                                    d="M11.944 0C5.346 0 0 5.346 0 11.944c0 6.598 5.346 11.944 11.944 11.944 6.598 0 11.944-5.346 11.944-11.944C23.888 5.346 18.542 0 11.944 0zm5.244 8.783l-1.884 8.878c-.14.613-.51.764-1.022.478l-2.87-2.116-1.385 1.333c-.154.154-.282.282-.58.282l.205-2.91 5.302-4.787c.23-.205-.05-.316-.358-.112l-6.55 4.125-2.822-.882c-.613-.193-.625-.613.128-.91l11.02-4.246c.51-.193.957.112.741 1.259z">
+                                </path>
+                            </svg>
+                            Professional Admin
+                        </h3>
                         <p style="color: var(--text-secondary);">Robust security logging and advanced permission
                             management for large-scale groups.</p>
                     </div>
@@ -106,7 +131,7 @@
         </section>
 
         <section style="text-align: center; margin-top: 4rem;">
-            <a href="/" class="btn btn-outline">← Back to Ecosystem</a>
+            <a href="/" class="btn btn-outline" data-i18n="back_ecosystem">← Back to Ecosystem</a>
         </section>
     </main>
 
@@ -117,6 +142,7 @@
         </div>
     </footer>
     <script src="/status.js"></script>
+    <script src="/lang.js"></script>
     <script src="/chat.js"></script>
 </body>
 

@@ -23,8 +23,18 @@
         <div class="container">
             <a href="/" class="logo">AlexaInc<span style="color: var(--accent-wa);">.</span></a>
             <div class="nav-links">
-                <a href="/" class="nav-link active">Ecosystem</a>
-                <a href="/about/" class="nav-link">About Me</a>
+                <a href="/" class="nav-link active" data-i18n="nav_ecosystem">Ecosystem</a>
+                <a href="/about/" class="nav-link" data-i18n="nav_about">About Me</a>
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button class="lang-btn" id="lang-btn">EN</button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button onclick="setLanguage('en')">English</button>
+                        <button onclick="setLanguage('si')">සිංහල</button>
+                        <button onclick="setLanguage('ta')">தமிழ்</button>
+                        <button onclick="setLanguage('fr')">Français</button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -32,9 +42,10 @@
     <main class="container">
         <!-- Hero Section -->
         <header class="hero">
-            <div class="pill dev" style="margin-bottom: 1.5rem;">Multi-Platform Intelligence</div>
-            <h1>Social Intelligence.<br>Refined.</h1>
-            <p>A specialized ecosystem of high-performance automation bots tailored for the next generation of social
+            <div class="pill dev" style="margin-bottom: 1.5rem;" data-i18n="hero_pill">Multi-Platform Intelligence</div>
+            <h1 data-i18n="hero_title">Social Intelligence.<br>Refined.</h1>
+            <p data-i18n="hero_desc">A specialized ecosystem of high-performance automation bots tailored for the next
+                generation of social
                 interaction.</p>
 
             <div class="terminal glass-panel">
@@ -57,21 +68,30 @@
 
         <!-- Project Bento Grid -->
         <section id="ecosystem">
-            <h2 style="margin-bottom: 4rem; text-align: center; font-size: 2.5rem;">The Bot Realms</h2>
+            <h2 style="margin-bottom: 4rem; text-align: center; font-size: 2.5rem;" data-i18n="realm_title">The Bot
+                Realms</h2>
             <div class="project-grid">
 
                 <!-- Alexa V3 - WhatsApp Flagship -->
-                <div class="project-card glass-panel wa-card span-7 row-2">
+                <div class="project-card glass-panel wa-card span-8">
                     <div>
-                        <div class="pill automation">WhatsApp Flagship</div>
-                        <div class="card-icon">🗨️</div>
+                        <div class="pill automation" data-i18n="wa_pill">WhatsApp Flagship</div>
+                        <div class="card-icon" style="color: var(--accent-wa);">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="48"
+                                height="48">
+                                <path
+                                    d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232">
+                                </path>
+                            </svg>
+                        </div>
                         <h3 style="font-size: 2rem;">Alexa V3</h3>
-                        <p style="font-size: 1.1rem; margin-top: 1rem;">The industry-leading WhatsApp automation bot.
+                        <p style="font-size: 1.1rem; margin-top: 1rem;" data-i18n="wa_desc">The industry-leading
+                            WhatsApp automation bot.
                             Powerful utilities, advanced group management, and seamless media processing built for the
                             core community.</p>
                     </div>
                     <div style="margin-top: 2rem;">
-                        <a href="/alexa-v3/" class="mono"
+                        <a href="/alexa-v3/" class="mono" data-i18n="learn_more"
                             style="color: var(--accent-wa); text-decoration: none; font-weight: 700; margin-right: 1.5rem;">Learn
                             Details →</a>
                         <a href="https://github.com/AlexaInc/alexa-v3" class="mono"
@@ -84,16 +104,23 @@
                 </div>
 
                 <!-- alexatg - Telegram Management & AI -->
-                <div class="project-card glass-panel tg-card span-5 row-2">
+                <div class="project-card glass-panel tg-card span-4">
                     <div>
-                        <div class="pill special">Telegram Management</div>
-                        <div class="card-icon">🏛️</div>
+                        <div class="pill special" data-i18n="tg_pill">Telegram Management</div>
+                        <div class="card-icon" style="color: var(--accent-tg);">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                                <path
+                                    d="M11.944 0C5.346 0 0 5.346 0 11.944c0 6.598 5.346 11.944 11.944 11.944 6.598 0 11.944-5.346 11.944-11.944C23.888 5.346 18.542 0 11.944 0zm5.244 8.783l-1.884 8.878c-.14.613-.51.764-1.022.478l-2.87-2.116-1.385 1.333c-.154.154-.282.282-.58.282l.205-2.91 5.302-4.787c.23-.205-.05-.316-.358-.112l-6.55 4.125-2.822-.882c-.613-.193-.625-.613.128-.91l11.02-4.246c.51-.193.957.112.741 1.259z">
+                                </path>
+                            </svg>
+                        </div>
                         <h3>AlexaTG</h3>
-                        <p>Specialized Telegram bot for professional group management, environmental AI components, and
+                        <p data-i18n="tg_desc">Specialized Telegram bot for professional group management, environmental
+                            AI components, and
                             interactive mini-games.</p>
                     </div>
                     <div style="margin-top: 2rem;">
-                        <a href="/alexatg/" class="mono"
+                        <a href="/alexatg/" class="mono" data-i18n="intel_specs"
                             style="color: var(--accent-tg); text-decoration: none; font-weight: 700; margin-right: 1.5rem;">Intelligence
                             Specs →</a>
                         <a href="https://github.com/AlexaInc/alexatg" class="mono"
@@ -105,49 +132,66 @@
                     </div>
                 </div>
 
-                <!-- AlexaxMusic - Music Bot -->
-                <div class="project-card glass-panel music-card span-5 row-2">
+                <!-- SNOWSTORM - Battle Royale -->
+                <div class="project-card glass-panel snow-card span-12"
+                    style="border-color: rgba(14, 165, 233, 0.2); background: linear-gradient(135deg, rgba(13, 17, 23, 0.8) 0%, rgba(14, 165, 233, 0.05) 100%);">
+                    <div style="display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap;">
+                        <div class="card-icon" style="color: var(--accent-snow); flex-shrink: 0;">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="64" height="64">
+                                <path
+                                    d="M11 11.127l1-1 1 1V13h-2v-1.873zm1.5-7.127a.5.5 0 0 0-1 0v1.12c-.524.085-1.022.254-1.48.5l-.8-.8a.5.5 0 1 0-.707.707l.8.8c-.246.458-.415.956-.5 1.48h-1.12a.5.5 0 1 0 0 1h1.12c.085.524.254 1.022.5 1.48l-.8.8a.5.5 0 1 0 .707.707l.8-.8c.458.246.956.415 1.48.5v1.12a.5.5 0 0 0 1 0v-1.12c.524-.085 1.022-.254 1.48-.5l.8.8a.5.5 0 0 0 .707-.707l-.8-.8c.246-.458.415-.956.5-1.48h1.12a.5.5 0 0 0 0-1h-1.12c-.085-.524-.254-.1022-.5-1.48l.8-.8a.5.5 0 0 0-.707-.707l-.8.8c-.458-.246-.956-.415-1.48-.5V4zm-1.5 5h3c.828 0 1.5.672 1.5 1.5V17a3 3 0 0 1-3 3h-3a3 3 0 0 1-3-3v-6.5c0-.828.672-1.5 1.5-1.5h1.5v-.5z" />
+                            </svg>
+                        </div>
+                        <div style="flex: 1; min-width: 300px;">
+                            <div class="pill snow" data-i18n="snowstorm_pill">Winter Survival</div>
+                            <h3 style="font-size: 2rem; margin: 0.5rem 0;">SNOWSTORM</h3>
+                            <p style="font-size: 1.1rem; opacity: 0.8;" data-i18n="snowstorm_desc">Tactical winter
+                                survival battle royale on Telegram. Scavenge for resources, build fires, and outlast
+                                rivals in the ultimate storm.</p>
+                            <div style="margin-top: 1.5rem; display: flex; gap: 1.5rem;">
+                                <a href="/snowstorm/" class="mono" data-i18n="snowstorm_stats"
+                                    style="color: var(--accent-snow); text-decoration: none; font-weight: 700;">Survival
+                                    Specs →</a>
+                                <a href="https://github.com/AlexaInc/SNOWSTORM" class="mono"
+                                    style="opacity: 0.6; text-decoration: none;">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AlexaxMusic - Multimedia -->
+                <div class="project-card glass-panel music-card span-6">
                     <div>
-                        <div class="pill special" style="color: var(--accent-music); border-color: var(--glow-music);">
-                            Multimedia</div>
-                        <div class="card-icon">🎵</div>
+                        <div class="pill multimedia" data-i18n="music_pill">Multimedia Excellence</div>
+                        <div class="card-icon" style="color: var(--accent-music);">
+                            <img src="/assets/music-bot.png" alt="Music"
+                                style="width: 48px; height: 48px; border-radius: 12px; filter: drop-shadow(0 0 10px var(--accent-music));">
+                        </div>
                         <h3>AlexaxMusic</h3>
-                        <p>High-fidelity Telegram music bot providing high-quality audio streaming, playlist management,
-                            and community playback.</p>
+                        <p data-i18n="music_desc">High-fidelity music streaming for Telegram. Crystal clear audio,
+                            seamless playlists, and shared listening.</p>
                     </div>
                     <div style="margin-top: 2rem;">
-                        <a href="/alexaxmusic/" class="mono"
+                        <a href="/alexaxmusic/" class="mono" data-i18n="stream_specs"
                             style="color: var(--accent-music); text-decoration: none; font-weight: 700; margin-right: 1.5rem;">Streaming
                             Specs →</a>
-                        <a href="https://github.com/AlexaInc/AlexaxMusic" class="mono"
+                        <a href="https://github.com/AlexaInc/alexaxmusic" class="mono"
                             style="opacity: 0.6; text-decoration: none;">GitHub</a>
                     </div>
                 </div>
 
                 <!-- pybaileys - Developer Tooling -->
-                <div class="project-card glass-panel dev-card span-4">
+                <div class="project-card glass-panel dev-card span-6">
                     <div>
-                        <div class="pill dev">Dev Engine</div>
+                        <div class="pill dev" data-i18n="dev_pill">Dev Engine</div>
                         <h3>pybaileys core</h3>
                         <p>The backbone of our WhatsApp automation, providing a robust Python interface for creators.
                         </p>
                     </div>
-                    <a href="https://github.com/AlexaInc/pybaileys" class="mono"
-                        style="color: var(--accent-dev); text-decoration: none; margin-top: 1rem;">Developer API →</a>
-                </div>
-
-                <!-- Performance Utils -->
-                <div class="project-card glass-panel span-3 row-2">
-                    <div class="pill" style="opacity: 0.5;">Utilities</div>
-                    <h3>Special Ops</h3>
-                    <p>Internal performance & security tools.</p>
-                    <ul class="mono"
-                        style="list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
-                        <li><a href="https://github.com/AlexaInc/SNOWSTORM"
-                                style="color: inherit; text-decoration: none; opacity: 0.7;">> SNOWSTORM</a></li>
-                        <li><a href="https://github.com/AlexaInc/assassin"
-                                style="color: inherit; text-decoration: none; opacity: 0.7;">> ASSASSIN</a></li>
-                    </ul>
+                    <div style="margin-top: 2rem;">
+                        <a href="https://github.com/AlexaInc/pybaileys" class="mono" data-i18n="dev_api"
+                            style="color: var(--accent-dev); text-decoration: none;">Developer API →</a>
+                    </div>
                 </div>
 
             </div>
@@ -156,10 +200,12 @@
 
     <footer>
         <div class="container" style="padding: 4rem 0; border-top: 1px solid var(--border-color); text-align: center;">
-            <p class="mono" style="opacity: 0.6;">© 2026 Hansaka Rasanjana (AlexaInc). Built for the Decentralized
+            <p class="mono" style="opacity: 0.6;" data-i18n="copyright">© 2026 Hansaka Rasanjana (AlexaInc). Built for
+                the Decentralized
                 Social World.</p>
         </div>
     </footer>
+    <script src="/lang.js"></script>
     <script src="/chat.js"></script>
 </body>
 
