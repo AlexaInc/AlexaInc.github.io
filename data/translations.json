@@ -40,7 +40,17 @@
         "snowstorm_features": "Survival Mechanics",
         "snowstorm_feature_storm": "The Storm: Dynamic temperature drops and lethal blizzards.",
         "snowstorm_feature_reaper": "The Reaper: A mysterious entity that eliminates the weakest.",
-        "snowstorm_feature_economy": "Tactical Economy: Loot, shop, and manage rare survival gear."
+        "snowstorm_feature_economy": "Tactical Economy: Loot, shop, and manage rare survival gear.",
+        "pybaileys_pill": "Dev Hub",
+        "pybaileys_title": "PyBaileys Engine",
+        "pybaileys_desc": "Write WhatsApp bots fully in Python while a Node.js engine runs silently in the background. A powerful wrapper around Baileys.",
+        "pybaileys_features": "Core Features",
+        "pybaileys_f1": "Snake API: Pure Python interface",
+        "pybaileys_f2": "Auto-Pilot: Automatic Node.js setup & config",
+        "pybaileys_f3": "Event-Driven: Native multi-device support",
+        "pybaileys_install": "Installation",
+        "pybaileys_quickstart": "Quick Start",
+        "pybaileys_events": "Event Handlers"
     },
     "si": {
         "nav_ecosystem": "පද්ධතිය (Ecosystem)",
@@ -83,7 +93,17 @@
         "snowstorm_features": "පැවැත්මේ ක්‍රමවේද",
         "snowstorm_feature_storm": "සුළි කුණාටුව: උෂ්ණත්වය අඩුවීම සහ මාරාන්තික හිම කුණාටු.",
         "snowstorm_feature_reaper": "Reaper: දුර්වලම ක්‍රීඩකයන් ඉවත් කරන අභිරහස් චරිතය.",
-        "snowstorm_feature_economy": "ආර්ථිකය: දුර්ලභ මෙවලම් මිලදී ගැනීම සහ කළමනාකරණය."
+        "snowstorm_feature_economy": "ආර්ථිකය: දුර්ලභ මෙවලම් මිලදී ගැනීම සහ කළමනාකරණය.",
+        "pybaileys_pill": "සංවර්ධක කේන්ද්‍රය",
+        "pybaileys_title": "PyBaileys එන්ජිම",
+        "pybaileys_desc": "Python භාෂාවෙන් පමණක් WhatsApp bot කෙනෙකු නිර්මාණය කරන්න. පසුබිමෙන් Node.js එන්ජිමක් ස්වයංක්‍රීයව ක්‍රියාත්මක වේ.",
+        "pybaileys_features": "මූලික විශේෂාංග",
+        "pybaileys_f1": "Snake API: පිරිසිදු Python අතුරුමුහුණත",
+        "pybaileys_f2": "Auto-Pilot: Node.js ස්වයංක්‍රීයව ස්ථාපනය සහ වින්‍යාස කිරීම",
+        "pybaileys_f3": "Event-Driven: බහු-ජංගම දුරකථන සහාය (Multi-device support)",
+        "pybaileys_install": "ස්ථාපනය",
+        "pybaileys_quickstart": "ඉක්මන් ආරම්භය",
+        "pybaileys_events": "Event Handlers"
     },
     "fr": {
         "nav_ecosystem": "Écosystème",
@@ -126,7 +146,17 @@
         "snowstorm_features": "Mécaniques de Survie",
         "snowstorm_feature_storm": "La Tempête: Chutes de température dynamiques et blizzards mortels.",
         "snowstorm_feature_reaper": "Le Reaper: Une entité mystérieuse qui élimine les plus faibles.",
-        "snowstorm_feature_economy": "Économie Tactique: Butin, boutique et gestion d'équipement rare."
+        "snowstorm_feature_economy": "Économie Tactique: Butin, boutique et gestion d'équipement rare.",
+        "pybaileys_pill": "Hub Développeur",
+        "pybaileys_title": "Moteur PyBaileys",
+        "pybaileys_desc": "Créez des bots WhatsApp entièrement en Python tandis qu'un moteur Node.js tourne silencieusement en arrière-plan.",
+        "pybaileys_features": "Caractéristiques",
+        "pybaileys_f1": "Snake API: Interface Python pure",
+        "pybaileys_f2": "Auto-Pilot: Installation & config Node.js automatique",
+        "pybaileys_f3": "Event-Driven: Support multi-appareils natif",
+        "pybaileys_install": "Installation",
+        "pybaileys_quickstart": "Démarrage Rapide",
+        "pybaileys_events": "Gestion des Événements"
     },
     "ta": {
         "nav_ecosystem": "சுற்றுச்சூழல்",
@@ -169,6 +199,16 @@
         "snowstorm_features": "உயிர்வாழும் இயக்கவியல்",
         "snowstorm_feature_storm": "புயல்: டைனமிக் வெப்பநிலை வீழ்ச்சி மற்றும் ஆபத்தான பனிப்புயல்கள்.",
         "snowstorm_feature_reaper": "ரீப்பர்: பலவீனமானவர்களை அகற்றும் ஒரு மர்மமான நிறுவனம்.",
-        "snowstorm_feature_economy": "தந்திரோபாய பொருளாதாரம்: கொள்ளை, கடை மற்றும் அரிய உயிர்வாழும் உபகரணங்களை நிர்வகித்தல்."
+        "snowstorm_feature_economy": "தந்திரோபாய பொருளாதாரம்: கொள்ளை, கடை மற்றும் அரிய உயிர்வாழும் உபகரணங்களை நிர்வகித்தல்.",
+        "pybaileys_pill": "டெவலப்பர் மையம்",
+        "pybaileys_title": "PyBaileys எஞ்சின்",
+        "pybaileys_desc": "Python மொழியிலேயே முழுமையாக வாட்ஸ்அப் போட்களை உருவாக்குங்கள். Node.js பின்னணியில் தானாகவே செயல்படும்.",
+        "pybaileys_features": "முக்கிய அம்சங்கள்",
+        "pybaileys_f1": "Snake API: தூய Python இடைமுகம்",
+        "pybaileys_f2": "Auto-Pilot: Node.js தானியங்கி நிறுவல் மற்றும் அமைப்பு",
+        "pybaileys_f3": "Event-Driven: மல்டி-டிவைஸ் ஆதரவு",
+        "pybaileys_install": "நிறுவல்",
+        "pybaileys_quickstart": "விரைவான தொடக்கம்",
+        "pybaileys_events": "நிகழ்வு கையாளுபவர்கள்"
     }
 }
