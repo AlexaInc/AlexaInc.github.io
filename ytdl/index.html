@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTDL API Docs - AlexaInc</title>
+    <link rel="stylesheet" href="../index.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@500&family=Outfit:wght@600&display=swap"
+        rel="stylesheet">
+    <style>
+        .ytdl-hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 0, 0, 0.05) 0%, transparent 70%);
+        }
+
+        .doc-section {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .code-block {
+            background: #0d1117;
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .code-block::before {
+            content: attr(data-lang);
+            position: absolute;
+            top: 0;
+            right: 1.5rem;
+            padding: 0.2rem 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 0.7rem;
+            color: #ff4b4b;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+        }
+
+        pre {
+            margin: 0;
+            font-family: 'JetBrains Mono', monospace;
+            color: #d1d5db;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .keyword {
+            color: #ff7b72;
+        }
+
+        .string {
+            color: #a5d6ff;
+        }
+
+        .comment {
+            color: #8b949e;
+        }
+
+        .function {
+            color: #d2a8ff;
+        }
+
+        .variable {
+            color: #79c0ff;
+        }
+
+        .endpoint-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .method {
+            background: #ff4b4b;
+            color: #000;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .url {
+            font-family: 'JetBrains Mono', monospace;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">AlexaInc<span style="color: #ff4b4b;">.</span></a>
+            <div class="nav-links">
+                <a href="/#ecosystem" class="nav-link" data-i18n="nav_ecosystem">Ecosystem</a>
+                <a href="/about/" class="nav-link" data-i18n="nav_about">About Me</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn" id="lang-btn">EN</button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button onclick="setLanguage('en')">English</button>
+                        <button onclick="setLanguage('si')">සිංහල</button>
+                        <button onclick="setLanguage('ta')">தமிழ்</button>
+                        <button onclick="setLanguage('fr')">Français</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="ytdl-hero">
+        <div class="container">
+            <div class="hero-icon" style="color: #ff4b4b; margin-bottom: 2rem;">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="80" height="80">
+                    <path
+                        d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                </svg>
+            </div>
+            <div class="pill dev"
+                style="background: rgba(255, 75, 75, 0.1); color: #ff4b4b; border-color: rgba(255, 75, 75, 0.2); margin-bottom: 1.5rem;"
+                data-i18n="ytdl_pill">API Space</div>
+            <h1 data-i18n="ytdl_title">YTDL Utility</h1>
+            <p style="max-width: 600px; margin: 1.5rem auto;" data-i18n="ytdl_desc">High-performance YouTube downloader
+                API hosted on Hugging Face. Get metadata or direct binary buffers for audio and video with minimal
+                latency.</p>
+
+            <div style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: center;">
+                <a href="https://huggingface.co/spaces/hansaka1/ytdl" class="btn btn-primary"
+                    style="background: #ff4b4b; color: white; border: none;">
+                    Explore on Hugging Face
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="doc-section">
+            <h2 class="mono" data-i18n="ytdl_endpoints">Endpoints</h2>
+            <div class="endpoint-card">
+                <span class="method">POST</span>
+                <span class="url">https://hansaka1-ytdl.hf.space/get-info</span>
+            </div>
+            <div class="endpoint-card">
+                <span class="method">POST</span>
+                <span class="url">https://hansaka1-ytdl.hf.space/download</span>
+            </div>
+
+            <h2 class="mono" style="margin-top: 4rem;" data-i18n="ytdl_usage">JavaScript Usage</h2>
+            <p style="opacity: 0.7; margin-bottom: 1.5rem;">The following example demonstrates how to integrate the YTDL
+                API into your Node.js application using <code>node-fetch</code>.</p>
+
+            <div class="code-block" data-lang="javascript">
+                <pre><span class="keyword">const</span> fetch = <span class="function">require</span>(<span class="string">'node-fetch'</span>);
+
+<span class="keyword">const</span> commonHeaders = {
+    <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>,
+    <span class="string">'Referer'</span>: <span class="string">'https://hansaka1-ytdl.hf.space/'</span>,
+    <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0...'</span>
+};
+
+<span class="comment">/**
+ * Get Video Metadata
+ */</span>
+<span class="keyword">async</span> <span class="keyword">function</span> <span class="function">getInfo</span>(<span class="variable">url</span>) {
+    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"https://hansaka1-ytdl.hf.space/get-info"</span>, {
+        method: <span class="string">"POST"</span>,
+        headers: commonHeaders,
+        body: JSON.<span class="function">stringify</span>({ url })
+    });
+    <span class="keyword">return</span> <span class="keyword">await</span> response.<span class="function">json</span>();
+}
+
+<span class="comment">/**
+ * Direct Buffer Downloader
+ */</span>
+<span class="keyword">async</span> <span class="keyword">function</span> <span class="function">yt</span>(<span class="variable">url</span>, <span class="variable">type</span> = <span class="string">'audio'</span>) {
+    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"https://hansaka1-ytdl.hf.space/download"</span>, {
+        method: <span class="string">"POST"</span>,
+        headers: commonHeaders,
+        body: JSON.<span class="function">stringify</span>({ url, type })
+    });
+    <span class="keyword">return</span> <span class="keyword">await</span> response.<span class="function">buffer</span>();
+}</pre>
+            </div>
+
+            <h2 class="mono" style="margin-top: 4rem;" data-i18n="ytdl_examples">Implementation Examples</h2>
+            <div class="code-block" data-lang="javascript">
+                <pre><span class="comment">// Download Audio (MP3)</span>
+<span class="keyword">const</span> audioBuffer = <span class="keyword">await</span> <span class="function">yt</span>(url, <span class="string">'audio'</span>);
+
+<span class="comment">// Download Video (MP4)</span>
+<span class="keyword">const</span> videoBuffer = <span class="keyword">await</span> <span class="function">yt</span>(url, <span class="string">'video'</span>);</pre>
+            </div>
+
+            <div style="text-align: center; margin-top: 6rem; padding-bottom: 4rem;">
+                <a href="/" class="btn btn-outline" data-i18n="back_ecosystem">← Back to Ecosystem</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="padding: 4rem 0; border-top: 1px solid var(--border-color); text-align: center;">
+            <p class="mono" style="opacity: 0.6;" data-i18n="copyright">© 2026 Hansaka Rasanjana (AlexaInc). Built for
+                the Decentralized Social World.</p>
+        </div>
+    </footer>
+
+    <script src="../lang.js"></script>
+</body>
+
+</html>

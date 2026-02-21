@@ -128,7 +128,7 @@
 
             <div style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: center;">
                 <a href="https://github.com/AlexaInc/pybaileys" class="btn btn-primary"
-                    style="background: var(--accent-dev); color: #000; border: none;">
+                    style="background: var(--accent-dev); color: #000; border: none;" data-i18n="pybaileys_github">
                     Get Started on GitHub
                 </a>
             </div>
@@ -140,16 +140,16 @@
             <h2 class="mono" data-i18n="pybaileys_features">Core Features</h2>
             <div class="feature-grid">
                 <div class="feature-item">
-                    <h3 style="color: var(--accent-dev);">🐍 Snake API</h3>
+                    <h3 style="color: var(--accent-dev);" data-i18n="pybaileys_t1">🐍 Snake API</h3>
                     <p data-i18n="pybaileys_f1">Pure Python interface for WhatsApp automation. No Node.js knowledge
                         required.</p>
                 </div>
                 <div class="feature-item">
-                    <h3 style="color: var(--accent-dev);">⚡ Auto-Pilot</h3>
+                    <h3 style="color: var(--accent-dev);" data-i18n="pybaileys_t2">⚡ Auto-Pilot</h3>
                     <p data-i18n="pybaileys_f2">Automatically downloads and configures the environment on first run.</p>
                 </div>
                 <div class="feature-item">
-                    <h3 style="color: var(--accent-dev);">🔄 Event-Driven</h3>
+                    <h3 style="color: var(--accent-dev);" data-i18n="pybaileys_t3">🔄 Event-Driven</h3>
                     <p data-i18n="pybaileys_f3">Robust event system for handling messages, connection updates, and more.
                     </p>
                 </div>
@@ -181,22 +181,27 @@ client.start(auth_path=<span class="string">"session"</span>)</pre>
                 <table style="width: 100%; border-collapse: collapse;">
                     <thead>
                         <tr style="border-bottom: 1px solid var(--border-color);">
-                            <th style="padding: 1rem; text-align: left; color: var(--accent-dev);">Event</th>
-                            <th style="padding: 1rem; text-align: left; color: var(--accent-dev);">Description</th>
+                            <th style="padding: 1rem; text-align: left; color: var(--accent-dev);"
+                                data-i18n="doc_event">Event</th>
+                            <th style="padding: 1rem; text-align: left; color: var(--accent-dev);" data-i18n="doc_desc">
+                                Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr style="border-bottom: 1px solid var(--border-color);">
                             <td class="mono" style="padding: 1rem;">connection.update</td>
-                            <td style="padding: 1rem; opacity: 0.8;">QR code & connection status updates</td>
+                            <td style="padding: 1rem; opacity: 0.8;" data-i18n="pybaileys_event_conn">QR code &
+                                connection status updates</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-color);">
                             <td class="mono" style="padding: 1rem;">messages.upsert</td>
-                            <td style="padding: 1rem; opacity: 0.8;">Triggered on new incoming messages</td>
+                            <td style="padding: 1rem; opacity: 0.8;" data-i18n="pybaileys_event_msgs">Triggered on new
+                                incoming messages</td>
                         </tr>
                         <tr>
                             <td class="mono" style="padding: 1rem;">creds.update</td>
-                            <td style="padding: 1rem; opacity: 0.8;">Authentication credentials saved</td>
+                            <td style="padding: 1rem; opacity: 0.8;" data-i18n="pybaileys_event_creds">Authentication
+                                credentials saved</td>
                         </tr>
                     </tbody>
                 </table>

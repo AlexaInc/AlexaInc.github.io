@@ -50,7 +50,16 @@
         "pybaileys_f3": "Event-Driven: Native multi-device support",
         "pybaileys_install": "Installation",
         "pybaileys_quickstart": "Quick Start",
-        "pybaileys_events": "Event Handlers"
+        "pybaileys_events": "Event Handlers",
+        "pybaileys_t1": "🐍 Snake API",
+        "pybaileys_t2": "⚡ Auto-Pilot",
+        "pybaileys_t3": "🔄 Event-Driven",
+        "doc_event": "Event",
+        "doc_desc": "Description",
+        "pybaileys_github": "Get Started on GitHub",
+        "pybaileys_event_conn": "QR code & connection status updates",
+        "pybaileys_event_msgs": "Triggered on new incoming messages",
+        "pybaileys_event_creds": "Authentication credentials saved"
     },
     "si": {
         "nav_ecosystem": "පද්ධතිය (Ecosystem)",
@@ -103,7 +112,22 @@
         "pybaileys_f3": "Event-Driven: බහු-ජංගම දුරකථන සහාය (Multi-device support)",
         "pybaileys_install": "ස්ථාපනය",
         "pybaileys_quickstart": "ඉක්මන් ආරම්භය",
-        "pybaileys_events": "Event Handlers"
+        "pybaileys_events": "Event Handlers",
+        "pybaileys_t1": "🐍 Snake API",
+        "pybaileys_t2": "⚡ Auto-Pilot",
+        "pybaileys_t3": "🔄 Event-Driven",
+        "doc_event": "Event",
+        "doc_desc": "විස්තරය",
+        "pybaileys_github": "GitHub හරහා ආරම්භ කරන්න",
+        "pybaileys_event_conn": "QR කේතය සහ සබැඳුම් යාවත්කාලීන කිරීම්",
+        "pybaileys_event_msgs": "නව පණිවිඩ ලැබුණු විට ක්‍රියාත්මක වේ",
+        "pybaileys_event_creds": "සත්‍යාපන අක්තපත්‍ර සුරකින ලදී",
+        "ytdl_pill": "API අවකාශය",
+        "ytdl_title": "YTDL මෙවලම",
+        "ytdl_desc": "Hugging Face හරහා ක්‍රියාත්මක වන ප්‍රබල YouTube බාගත කිරීමේ API පද්ධතියකි. වීඩියෝ දත්ත සහ Binary buffers ලබා ගත හැක.",
+        "ytdl_usage": "JavaScript භාවිතය",
+        "ytdl_endpoints": "අන්ත ලක්ෂ්‍ය (Endpoints)",
+        "ytdl_examples": "භාවිතා කරන ආකාරය (Examples)"
     },
     "fr": {
         "nav_ecosystem": "Écosystème",
@@ -156,7 +180,22 @@
         "pybaileys_f3": "Event-Driven: Support multi-appareils natif",
         "pybaileys_install": "Installation",
         "pybaileys_quickstart": "Démarrage Rapide",
-        "pybaileys_events": "Gestion des Événements"
+        "pybaileys_events": "Gestion des Événements",
+        "pybaileys_t1": "🐍 Snake API",
+        "pybaileys_t2": "⚡ Auto-Pilot",
+        "pybaileys_t3": "🔄 Event-Driven",
+        "doc_event": "Événement",
+        "doc_desc": "Description",
+        "pybaileys_github": "Commencer sur GitHub",
+        "pybaileys_event_conn": "Mises à jour du code QR et de la connexion",
+        "pybaileys_event_msgs": "Déclenché par de nouveaux messages",
+        "pybaileys_event_creds": "Identifiants de session enregistrés",
+        "ytdl_pill": "Espace API",
+        "ytdl_title": "Utilitaire YTDL",
+        "ytdl_desc": "API de téléchargement YouTube haute performance hébergée sur Hugging Face. Récupérez des métadonnées ou des buffers directs.",
+        "ytdl_usage": "Utilisation JavaScript",
+        "ytdl_endpoints": "Points de Terminaison",
+        "ytdl_examples": "Exemples d'Implémentation"
     },
     "ta": {
         "nav_ecosystem": "சுற்றுச்சூழல்",
@@ -209,6 +248,21 @@
         "pybaileys_f3": "Event-Driven: மல்டி-டிவைஸ் ஆதரவு",
         "pybaileys_install": "நிறுவல்",
         "pybaileys_quickstart": "விரைவான தொடக்கம்",
-        "pybaileys_events": "நிகழ்வு கையாளுபவர்கள்"
+        "pybaileys_events": "நிகழ்வு கையாளுபவர்கள்",
+        "pybaileys_t1": "🐍 Snake API",
+        "pybaileys_t2": "⚡ Auto-Pilot",
+        "pybaileys_t3": "🔄 Event-Driven",
+        "doc_event": "நிகழ்வு",
+        "doc_desc": "விளக்கம்",
+        "pybaileys_github": "GitHub-இல் தொடங்கவும்",
+        "pybaileys_event_conn": "QR குறியீடு மற்றும் இணைப்பு புதுப்பிப்புகள்",
+        "pybaileys_event_msgs": "புதிய செய்திகள் வரும்போது தூண்டப்படும்",
+        "pybaileys_event_creds": "அங்கீகார சான்றுகள் சேமிக்கப்பட்டன",
+        "ytdl_pill": "API வெளி",
+        "ytdl_title": "YTDL பயன்பாடு",
+        "ytdl_desc": "Hugging Face-இல் ஹோஸ்ட் செய்யப்பட்டுள்ள அதிவேக யூடியூப் டவுன்லோடர் API. மெட்டாடேட்டா அல்லது நேரடி பைனரி பஃபர்களைப் பெறுங்கள்.",
+        "ytdl_usage": "JavaScript பயன்பாடு",
+        "ytdl_endpoints": "எண்ட்பாயிண்ட்ஸ்",
+        "ytdl_examples": "நடைமுறை உதாரணங்கள்"
     }
 }
