@@ -64,7 +64,7 @@ async function updateBotStatus(statusElementId, updateElementId) {
         // or any bot via GitHub Activity. We DON'T use Telegram tokens here.
         if (botId === 'alexa-v3') {
             try {
-                const waRes = await fetch("https://frozen-ilysa-alexainclk-c22bf93f.koyeb.app/status");
+                const waRes = await fetch("https://hansaka1-alexa.hf.space/status");
                 const waData = await waRes.json();
                 if (statusText) statusText.innerText = waData.status.toUpperCase();
             } catch (e) {

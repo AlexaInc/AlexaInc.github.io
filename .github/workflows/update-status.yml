@@ -19,8 +19,8 @@ jobs:
 
       - name: Fetch WhatsApp (Koyeb) Status
         run: |
-          STATUS_JSON=$(curl -s "https://frozen-ilysa-alexainclk-c22bf93f.koyeb.app/status")
-          PHONE_JSON=$(curl -s "https://frozen-ilysa-alexainclk-c22bf93f.koyeb.app/get-phone-number")
+          STATUS_JSON=$(curl -s "https://hansaka1-alexa.hf.space/status")
+          PHONE_JSON=$(curl -s "https://hansaka1-alexa.hf.space/get-phone-number")
           
           # Use jq to extract values or set defaults
           WA_STATUS=$(echo $STATUS_JSON | jq -r '.status // "OFFLINE"')
