@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexa V3 | Deployment Guide</title>
+    <meta name="description" content="Step-by-step deployment guide for Alexa V3 WhatsApp bot - Beginner Friendly.">
+    <link rel="stylesheet" href="/index.css">
+    <link rel="icon" href="https://github.com/AlexaInc.png" type="image/png">
+    <style>
+        .deploy-section {
+            margin-bottom: 4rem;
+        }
+
+        .var-category {
+            margin-top: 2rem;
+        }
+
+        .var-category-title {
+            font-size: 1.1rem;
+            color: var(--accent-wa);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .var-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .var-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 8px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .var-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-wa);
+        }
+
+        .var-name {
+            color: var(--accent-wa);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .var-desc {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        code {
+            color: #d1d5db;
+        }
+
+        .platform-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .platform-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .platform-btn.active {
+            background: var(--accent-wa);
+            color: #000;
+            border-color: var(--accent-wa);
+            box-shadow: 0 0 15px var(--glow-wa);
+        }
+
+        .platform-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .platform-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-item::before {
+            counter-increment: steps;
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: var(--accent-wa);
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tip-box {
+            background: rgba(52, 211, 153, 0.1);
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-glow"></div>
+    <div class="grid-overlay"></div>
+
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">AlexaInc<span style="color: var(--accent-wa);">.</span></a>
+            <div class="nav-links">
+                <a href="/alexa-v3/" class="nav-link">Alexa V3</a>
+                <a href="/" class="nav-link">Ecosystem</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 6rem;">
+        <header style="text-align: center; margin-bottom: 4rem;">
+            <p class="pill automation" style="margin-bottom: 1rem;">Beginner's Guide</p>
+            <h1 style="color: var(--accent-wa);">Deploy Alexa V3</h1>
+            <p style="max-width: 600px; margin: 0 auto;">No coding experience? No problem. Follow these simple steps to
+                get your own WhatsApp bot running in minutes.</p>
+        </header>
+
+        <section class="deploy-section">
+            <div class="glass-panel" style="padding: 2.5rem; border-color: rgba(255,255,255,0.1);">
+                <h2 style="color: var(--accent-wa); margin-bottom: 1.5rem;">🛑 Before You Begin (Prerequisites)</h2>
+                <p>Ensure you have the following ready before starting the deployment:</p>
+                <ul style="margin-top: 1rem; line-height: 1.8;">
+                    <li><strong>WhatsApp Account:</strong> A secondary number is recommended for the bot.</li>
+                    <li><strong>Database:</strong> A MySQL database (get a free one at <a href="https://aiven.io"
+                            target="_blank" style="color: var(--accent-wa);">aiven.io</a>).</li>
+                    <li><strong>API Keys:</strong> You’ll need an <a href="https://openrouter.ai/" target="_blank"
+                            style="color: var(--accent-wa);">OpenRouter</a> key for the AI features.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="deploy-section">
+            <h2 style="color: var(--accent-wa); margin-bottom: 1.5rem; text-align: center;">1. Choose Your Launchpad
+            </h2>
+            <div class="platform-tabs">
+                <button class="platform-btn active" onclick="showPlatform('hf')">Hugging Face (Cloud)</button>
+                <button class="platform-btn" onclick="showPlatform('docker')">Docker / Containers</button>
+                <button class="platform-btn" onclick="showPlatform('vps')">VPS / Linux Server</button>
+            </div>
+
+            <div id="hf" class="platform-content active">
+                <div class="glass-panel" style="padding: 2rem; border-color: var(--accent-wa);">
+                    <h3>🚀 Hugging Face Deployment (Cloud)</h3>
+                    <p style="margin: 1rem 0;">This is the recommended method for beginners. It's free and stays online
+                        24/7.</p>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Proxy Required!</strong>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Hugging Face and other cloud providers
+                            (Railway, Render, Koyeb) use IP addresses that are often blocked by WhatsApp and YouTube.
+                            <strong>You MUST use a proxy</strong> via the <code>PROXY_URL</code> variable to avoid
+                            connection errors.
+                        </p>
+                    </div>
+
+                    <div class="step-list">
+                        <div class="step-item">
+                            <strong>Duplicate the Space:</strong> Click the button below to copy the bot to your own
+                            account.
+                            <br><br>
+                            <a href="https://huggingface.co/spaces/hansaka1/alexa?duplicate=true" target="_blank"
+                                class="btn btn-primary"
+                                style="background: var(--accent-wa); color: #000; display: inline-flex; align-items: center; gap: 0.5rem;">
+                                📋 Duplicate Alexa Space
+                            </a>
+                        </div>
+                        <div class="step-item">
+                            <strong>Configure Secrets:</strong> Go to the <strong>Settings</strong> tab of your new
+                            space and scroll down to <strong>Variables and Secrets</strong>. Add all the variables
+                            listed in Step 3.
+                        </div>
+                        <div class="step-item">
+                            <strong>Verify Deployment:</strong> Once saved, the bot will build and start automatically.
+                            Check the logs to see the startup progress.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="docker" class="platform-content">
+                <div class="glass-panel" style="padding: 2rem;">
+                    <h3>🐳 Docker Deployment</h3>
+                    <p style="margin: 1rem 0;">Best for users who want to host on Railway, Render, or their own home
+                        server.</p>
+                    <div class="info-box">
+                        <p style="font-size: 0.9rem;">If deploying to a cloud container service, the same <strong>Proxy
+                                Requirement</strong> applies as Hugging Face.</p>
+                    </div>
+                    <pre><code class="language-bash"># Build the image
+docker build -t alexa-v3 .
+
+# Run with environment variables
+docker run -d --name alexa-v3 \
+  -e ADMIN_PASSWORD=your_pass \
+  -e DB_HOST=your_host \
+  -e PROXY_URL=http://user:pass@host:port \
+  alexa-v3</code></pre>
+                </div>
+            </div>
+
+            <div id="vps" class="platform-content">
+                <div class="glass-panel" style="padding: 2rem;">
+                    <h3>💻 VPS / Manual Install</h3>
+                    <p style="margin: 1rem 0;">For users running Ubuntu/Debian servers or Termux on Android.</p>
+                    <div class="tip-box">
+                        <p style="font-size: 0.9rem;">Proxies are usually <strong>not required</strong> on local
+                            machines or residential VPS servers unless you face regional blocks.</p>
+                    </div>
+                    <pre><code class="language-bash"># Install dependencies
+sudo apt update && sudo apt install nodejs npm git -y
+
+# Clone and setup
+git clone https://github.com/AlexaInc/alexa-v3.git
+cd alexa-v3
+npm install
+
+# Start the bot
+npm start</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="deploy-section" style="text-align: center;">
+            <div class="glass-panel"
+                style="padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+                <h2 style="color: var(--accent-wa); margin-bottom: 0.5rem;">Quick Help Tools</h2>
+                <p style="opacity: 0.8; margin-bottom: 1rem;">Use these tools to quickly retrieve the information needed
+                    for Step 3.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                    <a href="/alexa-v3/deploy/session/" class="btn btn-primary"
+                        style="background: var(--accent-wa); color: #000; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>📋</span> Get Session JSON
+                    </a>
+                    <a href="https://wa.me/94705327164?text=.id" target="_blank" class="btn btn-outline"
+                        style="border-color: var(--accent-wa); color: var(--accent-wa);">
+                        <span>🆔</span> Get Your WhatsApp ID
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="deploy-section">
+            <h2 style="color: var(--accent-wa); margin-bottom: 1rem;">2. Database Setup</h2>
+            <p>Alexa V3 needs a database to "remember" group settings and chat history. Think of it as the bot's memory.
+            </p>
+            <div class="glass-panel" style="padding: 2rem; margin-top: 1.5rem;">
+                <p style="margin-bottom: 1rem;">After connecting to your MySQL database (e.g., via Aiven's SQL Editor),
+                    run this code:</p>
+                <pre><code class="language-sql">CREATE TABLE IF NOT EXISTS `groups` (
+    `group_id` VARCHAR(255) PRIMARY KEY,
+    `chatbot` TINYINT(1) DEFAULT 0,
+    `antilink` TINYINT(1) DEFAULT 0,
+    `link_a` VARCHAR(50) DEFAULT 'delete',
+    `antinsfw` TINYINT(1) DEFAULT 0,
+    `nsfw_a` VARCHAR(50) DEFAULT 'delete',
+    `is_allow_bots` TINYINT(1) DEFAULT 0,
+    `is_welcome` TINYINT(1) DEFAULT 0,
+    `wc_m` TEXT DEFAULT NULL,
+    `isleft_w` TINYINT(1) DEFAULT 0,
+    `left_m` TEXT DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `conversation_history` (
+    `id` VARCHAR(255) PRIMARY KEY,
+    `conventions` LONGTEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `tasks` (
+    `user_id` VARCHAR(255) PRIMARY KEY,
+    `tasks` TEXT NOT NULL
+);</code></pre>
+                <div class="tip-box">
+                    <strong>Aiven.io Tip:</strong> Use the "SQL Room" in your Aiven console to paste this code. Ensure
+                    your DB status is <strong>RUNNING</strong> before connecting.
+                </div>
+            </div>
+        </section>
+
+        <section class="deploy-section">
+            <h2 style="color: var(--accent-wa); margin-bottom: 1rem;">3. Configuration (Secret Variables)</h2>
+            <p>These are the settings that tell the bot how to connect to your accounts. <strong>Keep these
+                    private!</strong></p>
+
+            <div class="var-category">
+                <div class="var-category-title">🛡️ Authentication & Admin</div>
+                <div class="var-grid">
+                    <div class="var-card"><span class="var-name">ADMIN_USERNAME</span><span class="var-desc">Your custom
+                            username for the web panel</span></div>
+                    <div class="var-card"><span class="var-name">ADMIN_PASSWORD</span><span class="var-desc">Your secret
+                            password for the web panel</span></div>
+                    <div class="var-card"><span class="var-name">SESSION_SECRET</span><span class="var-desc">Any random
+                            long string to secure your session</span></div>
+                    <div class="var-card">
+                        <span class="var-name">SSN</span>
+                        <span class="var-desc">Your session JSON</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="var-category">
+                <div class="var-category-title">🗄️ Database (MySQL)</div>
+                <div class="var-grid">
+                    <div class="var-card"><span class="var-name">DB_HOST</span><span class="var-desc">Database hostname
+                            (e.g. mysql.aivencloud.com)</span></div>
+                    <div class="var-card"><span class="var-name">DB_PORT</span><span class="var-desc">Usually
+                            3306</span></div>
+                    <div class="var-card"><span class="var-name">DB_UNAME</span><span class="var-desc">Database
+                            username</span></div>
+                    <div class="var-card"><span class="var-name">DB_PASS</span><span class="var-desc">Database
+                            password</span></div>
+                    <div class="var-card"><span class="var-name">DB_NAME</span><span class="var-desc">Database name
+                            (usually "defaultdb")</span></div>
+                </div>
+            </div>
+
+            <div class="var-category">
+                <div class="var-category-title">🤖 Bot Settings</div>
+                <div class="var-grid">
+                    <div class="var-card"><span class="var-name">Owner_nb</span><span class="var-desc">Your WhatsApp
+                            number with country code (e.g. 9470...)</span></div>
+                    <div class="var-card"><span class="var-name">bot_nb</span><span class="var-desc">The bot's WhatsApp
+                            number with country code</span></div>
+                    <div class="var-card">
+                        <span class="var-name">Owner_id</span>
+                        <span class="var-desc">WhatsApp LID</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="var-category">
+                <div class="var-category-title">🌐 Network & Proxies</div>
+                <div class="var-grid">
+                    <div class="var-card">
+                        <span class="var-name">PROXY_URL</span>
+                        <span class="var-desc"><strong>CRITICAL for HF:</strong> <code>http://user:pass@host:port</code>
+                            or <code>socks5://...</code></span>
+                    </div>
+                    <div class="var-card"><span class="var-name">WEBSOCKET_URL</span><span
+                            class="var-desc"><code>https://{your-app-url}/logs</code></span></div>
+                    <div class="var-card"><span class="var-name">Alexasock_url</span><span
+                            class="var-desc"><code>wss://{your-app-url}/data-transfer</code></span></div>
+                </div>
+            </div>
+
+            <div class="var-category">
+                <div class="var-category-title">🔌 API Keys & External Services</div>
+                <div class="var-grid">
+                    <div class="var-card"><span class="var-name">OPENROUTER_TOKEN1</span><span class="var-desc">Key from
+                            openrouter.ai</span></div>
+                    <div class="var-card"><span class="var-name">CHAT_MODEL</span><span class="var-desc">AI Model (e.g.
+                            <code>mistralai/mistral-7b-instruct</code>)</span></div>
+                    <div class="var-card"><span class="var-name">GOOGLE_API_KEY</span><span class="var-desc">Google
+                            Cloud API key</span></div>
+                    <div class="var-card"><span class="var-name">TENOR_API_KEY</span><span class="var-desc">Key from
+                            Tenor for GIFs</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="deploy-section">
+            <h2 style="color: var(--accent-wa); margin-bottom: 2rem; text-align: center;">🛠️ Troubleshooting & Tips
+            </h2>
+            <div class="grid-2">
+                <div class="glass-panel" style="padding: 1.5rem;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">🧹 Session Cleanup</h3>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">If your bot keeps disconnecting or fails to pair, try
+                        clearing the <code>session</code> folder (VPS) or re-generating your <code>SSN</code> variable
+                        from the preview deployment.</p>
+                </div>
+                <div class="glass-panel" style="padding: 1.5rem;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">⌨️ Useful Commands</h3>
+                    <ul style="font-size: 0.9rem; opacity: 0.8; padding-left: 1.2rem;">
+                        <li><code>.menu</code> - See all features</li>
+                        <li><code>.id</code> - Get your personal/group ID</li>
+                        <li><code>.settings</code> - Change bot behavior</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin-top: 4rem; margin-bottom: 4rem;">
+            <a href="/alexa-v3/" class="btn btn-outline">← Back to Overview</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="padding: 4rem 0; border-top: 1px solid var(--border-color); text-align: center;">
+            <p class="mono" style="opacity: 0.6;">© 2026 Hansaka Rasanjana (AlexaInc). Built for the Decentralized
+                Social World.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPlatform(id) {
+            document.querySelectorAll('.platform-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

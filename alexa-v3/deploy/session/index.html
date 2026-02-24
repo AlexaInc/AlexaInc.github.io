@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexa V3 | Session Extractor</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="icon" href="https://github.com/AlexaInc.png" type="image/png">
+    <style>
+        .extractor-card {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .tab-nav {
+            display: flex;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 0.4rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .tab-btn.active {
+            background: var(--accent-wa);
+            color: #000;
+        }
+
+        #qr-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 250px;
+            margin: 1.5rem 0;
+            border: 4px solid var(--accent-wa);
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.2);
+        }
+
+        #qr-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #pairing-container {
+            display: none;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .mono-input {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            color: white;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            flex: 1;
+            font-family: inherit;
+        }
+
+        .pairing-code-display {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-wa);
+            letter-spacing: 0.5rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            border: 1px dashed var(--accent-wa);
+        }
+
+        .loader {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid var(--accent-wa);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #status {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            margin-top: 1.5rem;
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-glow"></div>
+    <div class="grid-overlay"></div>
+
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">AlexaInc<span style="color: var(--accent-wa);">.</span></a>
+            <div class="nav-links">
+                <a href="/alexa-v3/deploy/" class="nav-link">← Back to Guide</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 8rem;">
+        <div class="glass-panel extractor-card">
+            <div id="loader-container">
+                <div class="loader"></div>
+            </div>
+
+            <h1 style="color: var(--accent-wa); margin-bottom: 0.5rem;">Session Extractor</h1>
+            <p style="opacity: 0.7; margin-bottom: 2rem;">Link your WhatsApp account to get your credentials.</p>
+
+            <div class="tab-nav">
+                <button class="tab-btn active" id="btn-qr" onclick="switchTab('qr')">QR Code</button>
+                <button class="tab-btn" id="btn-pairing" onclick="switchTab('pairing')">Pairing Code</button>
+            </div>
+
+            <div id="qr-section">
+                <div id="qr-container">
+                    <p style="color: #000; font-weight: 600;">Generating QR...</p>
+                </div>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Open WhatsApp > Settings > Linked Devices > Link a Device
+                </p>
+            </div>
+
+            <div id="pairing-container">
+                <p style="font-size: 0.9rem; opacity: 0.8;">Enter your phone number with country code.</p>
+                <div class="input-group">
+                    <input type="text" id="phone-input" class="mono-input" placeholder="e.g. 94705327164">
+                    <button id="pair-btn" class="btn btn-primary"
+                        style="background: var(--accent-wa); color: #000; border: none;">Get Code</button>
+                </div>
+                <div id="pairing-code-container" style="display: none;">
+                    <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.7;">Enter this code on your phone:</p>
+                    <div id="pairing-code" class="pairing-code-display"></div>
+                </div>
+            </div>
+
+            <div id="status">Initializing system...</div>
+        </div>
+    </main>
+
+    <script>
+        function switchTab(tab) {
+            const qrSection = document.getElementById('qr-section');
+            const pairingSection = document.getElementById('pairing-container');
+            const btnQr = document.getElementById('btn-qr');
+            const btnPairing = document.getElementById('btn-pairing');
+
+            if (tab === 'qr') {
+                qrSection.style.display = 'block';
+                pairingSection.style.display = 'none';
+                btnQr.classList.add('active');
+                btnPairing.classList.remove('active');
+            } else {
+                qrSection.style.display = 'none';
+                pairingSection.style.display = 'block';
+                btnQr.classList.remove('active');
+                btnPairing.classList.add('active');
+            }
+        }
+    </script>
+    <!-- Core Baileys Extractor Bundle -->
+    <script src="bundle.js"></script>
+</body>
+
+</html>
