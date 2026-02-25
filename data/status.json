@@ -1,16 +1,16 @@
 {
-    "alexa-v3": {
-        "status": "ONLINE",
-        "update": "System: Active & Responsive",
-        "phoneNumber": "94705327164"
-    },
-    "alexatg": {
-        "status": "ONLINE",
-        "update": "Processing messages normally"
-    },
-    "alexaxmusic": {
-        "status": "ONLINE",
-        "update": "Processing messages normally"
-    },
-    "last_check": "Initial Setup"
+  "alexa-v3": {
+    "status": "Online",
+    "update": "System: Active & Responsive",
+    "phoneNumber": "94705327164"
+  },
+  "alexatg": {
+    "status": "OFFLINE",
+    "update": "API Unreachable"
+  },
+  "alexaxmusic": {
+    "status": "OFFLINE",
+    "update": "API Unreachable"
+  },
+  "last_check": "Wed Feb 25 10:34:53 UTC 2026"
 }
