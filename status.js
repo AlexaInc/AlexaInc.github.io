@@ -36,27 +36,66 @@ async function updateBotStatus(statusElementId, updateElementId) {
         const botData = data[botId];
 
         if (botData) {
-            // Update UI from JSON
-            if (statusText) {
-                statusText.innerText = botData.status.toUpperCase();
-                statusText.style.color = botData.status === "DELAYED" ? "#ffbd2e" : (botData.status === "OFFLINE" ? "#ff5f56" : "inherit");
-            }
-            if (updateText) {
-                updateText.innerText = botData.update;
-                updateText.style.opacity = "0.6";
-            }
+            // Fetch real-time status for alexaxmusic from Hugging Face
+            if (botId === 'alexaxmusic') {
+                try {
+                    const hfRes = await fetch("https://hazuu12-alexamusic.hf.space/", {
+                        "headers": {
+                            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                            "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
+                            "cache-control": "max-age=0",
+                            "priority": "u=0, i",
+                            "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+                            "sec-ch-ua-mobile": "?0",
+                            "sec-ch-ua-platform": "\"Windows\"",
+                            "sec-fetch-dest": "document",
+                            "sec-fetch-mode": "navigate",
+                            "sec-fetch-site": "none",
+                            "sec-fetch-user": "?1",
+                            "upgrade-insecure-requests": "1"
+                        },
+                        "body": null,
+                        "method": "GET",
+                        "mode": "cors",
+                        "credentials": "omit"
+                    });
 
-            // Handle specific chat buttons
-            if (botId === 'alexa-v3' && waChatBtn) {
-                waChatBtn.href = `https://wa.me/${botData.phoneNumber || DEFAULT_WA_NUMBER}`;
-            } else if (tgChatBtn) {
-                const tgUsernames = {
-                    'alexatg': 'alexaIncbot',
-                    'alexaxmusic': 'Alexaincmusicbot'
-                };
-                tgChatBtn.href = `https://t.me/${tgUsernames[botId]}`;
+                    const text = await hfRes.text();
+                    if (hfRes.ok && text.includes("Alive")) {
+                        botData.status = "ONLINE";
+                        botData.update = "System: Active & Responsive";
+                    } else {
+                        throw new Error("Not Alive");
+                    }
+                } catch (e) {
+                    botData.status = "OFFLINE";
+                    botData.update = "System: Offline / Starting";
+                    console.warn("Failed to fetch real-time status from Hugging Face for alexaxmusic:", e);
+                }
             }
         }
+
+        // Update UI from JSON
+        if (statusText) {
+            statusText.innerText = botData.status.toUpperCase();
+            statusText.style.color = botData.status === "DELAYED" ? "#ffbd2e" : (botData.status === "OFFLINE" ? "#ff5f56" : "inherit");
+        }
+        if (updateText) {
+            updateText.innerText = botData.update;
+            updateText.style.opacity = "0.6";
+        }
+
+        // Handle specific chat buttons
+        if (botId === 'alexa-v3' && waChatBtn) {
+            waChatBtn.href = `https://wa.me/${botData.phoneNumber || DEFAULT_WA_NUMBER}`;
+        } else if (tgChatBtn) {
+            const tgUsernames = {
+                'alexatg': 'alexaIncbot',
+                'alexaxmusic': 'Alexaincmusicbot'
+            };
+            tgChatBtn.href = `https://t.me/${tgUsernames[botId]}`;
+        }
+
     } catch (error) {
         console.warn("Secure status check failed. Switching to limited direct fetch fallback.");
 
