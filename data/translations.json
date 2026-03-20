@@ -59,7 +59,13 @@
         "pybaileys_github": "Get Started on GitHub",
         "pybaileys_event_conn": "QR code & connection status updates",
         "pybaileys_event_msgs": "Triggered on new incoming messages",
-        "pybaileys_event_creds": "Authentication credentials saved"
+        "pybaileys_event_creds": "Authentication credentials saved",
+        "ytdl_pill": "API Space",
+        "ytdl_title": "YTDL Utility",
+        "ytdl_desc": "High-performance YouTube downloader API hosted on Hugging Face. Get metadata, search results, or direct binary buffers for audio and video.",
+        "ytdl_usage": "JavaScript Usage",
+        "ytdl_endpoints": "Endpoints",
+        "ytdl_examples": "Implementation Examples"
     },
     "si": {
         "nav_ecosystem": "පද්ධතිය (Ecosystem)",
@@ -124,7 +130,7 @@
         "pybaileys_event_creds": "සත්‍යාපන අක්තපත්‍ර සුරකින ලදී",
         "ytdl_pill": "API අවකාශය",
         "ytdl_title": "YTDL මෙවලම",
-        "ytdl_desc": "Hugging Face හරහා ක්‍රියාත්මක වන ප්‍රබල YouTube බාගත කිරීමේ API පද්ධතියකි. වීඩියෝ දත්ත සහ Binary buffers ලබා ගත හැක.",
+        "ytdl_desc": "Hugging Face හරහා ක්‍රියාත්මක වන ප්‍රබල YouTube බාගත කිරීමේ API පද්ධතියකි. වීඩියෝ දත්ත, සෙවුම් ප්‍රතිඵල (search results) හෝ Binary buffers ලබා ගත හැක.",
         "ytdl_usage": "JavaScript භාවිතය",
         "ytdl_endpoints": "අන්ත ලක්ෂ්‍ය (Endpoints)",
         "ytdl_examples": "භාවිතා කරන ආකාරය (Examples)"
@@ -192,7 +198,7 @@
         "pybaileys_event_creds": "Identifiants de session enregistrés",
         "ytdl_pill": "Espace API",
         "ytdl_title": "Utilitaire YTDL",
-        "ytdl_desc": "API de téléchargement YouTube haute performance hébergée sur Hugging Face. Récupérez des métadonnées ou des buffers directs.",
+        "ytdl_desc": "API de téléchargement YouTube haute performance hébergée sur Hugging Face. Récupérez des métadonnées, des résultats de recherche ou des buffers directs.",
         "ytdl_usage": "Utilisation JavaScript",
         "ytdl_endpoints": "Points de Terminaison",
         "ytdl_examples": "Exemples d'Implémentation"
@@ -260,7 +266,7 @@
         "pybaileys_event_creds": "அங்கீகார சான்றுகள் சேமிக்கப்பட்டன",
         "ytdl_pill": "API வெளி",
         "ytdl_title": "YTDL பயன்பாடு",
-        "ytdl_desc": "Hugging Face-இல் ஹோஸ்ட் செய்யப்பட்டுள்ள அதிவேக யூடியூப் டவுன்லோடர் API. மெட்டாடேட்டா அல்லது நேரடி பைனரி பஃபர்களைப் பெறுங்கள்.",
+        "ytdl_desc": "Hugging Face-இல் ஹோஸ்ட் செய்யப்பட்டுள்ள அதிவேக யூடியூப் டவுன்லோடர் API. மெட்டாடேட்டா, தேடல் முடிவுகள் அல்லது நேரடி பைனரி பஃபர்களைப் பெறுங்கள்.",
         "ytdl_usage": "JavaScript பயன்பாடு",
         "ytdl_endpoints": "எண்ட்பாயிண்ட்ஸ்",
         "ytdl_examples": "நடைமுறை உதாரணங்கள்"

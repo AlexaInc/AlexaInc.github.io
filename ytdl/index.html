@@ -161,6 +161,10 @@
                 <span class="method">POST</span>
                 <span class="url">https://hansaka1-ytdl.hf.space/download</span>
             </div>
+            <div class="endpoint-card">
+                <span class="method">POST</span>
+                <span class="url">https://hansaka1-ytdl.hf.space/search</span>
+            </div>
 
             <h2 class="mono" style="margin-top: 4rem;" data-i18n="ytdl_usage">JavaScript Usage</h2>
             <p style="opacity: 0.7; margin-bottom: 1.5rem;">The following example demonstrates how to integrate the YTDL
@@ -197,6 +201,18 @@
         body: JSON.<span class="function">stringify</span>({ url, type })
     });
     <span class="keyword">return</span> <span class="keyword">await</span> response.<span class="function">buffer</span>();
+}
+
+<span class="comment">/**
+ * Search YouTube
+ */</span>
+<span class="keyword">async</span> <span class="keyword">function</span> <span class="function">search</span>(<span class="variable">query</span>) {
+    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"https://hansaka1-ytdl.hf.space/search"</span>, {
+        method: <span class="string">"POST"</span>,
+        headers: commonHeaders,
+        body: JSON.<span class="function">stringify</span>({ query })
+    });
+    <span class="keyword">return</span> <span class="keyword">await</span> response.<span class="function">json</span>();
 }</pre>
             </div>
 
@@ -206,7 +222,10 @@
 <span class="keyword">const</span> audioBuffer = <span class="keyword">await</span> <span class="function">yt</span>(url, <span class="string">'audio'</span>);
 
 <span class="comment">// Download Video (MP4)</span>
-<span class="keyword">const</span> videoBuffer = <span class="keyword">await</span> <span class="function">yt</span>(url, <span class="string">'video'</span>);</pre>
+<span class="keyword">const</span> videoBuffer = <span class="keyword">await</span> <span class="function">yt</span>(url, <span class="string">'video'</span>);
+
+<span class="comment">// Search for videos</span>
+<span class="keyword">const</span> results = <span class="keyword">await</span> <span class="function">search</span>(<span class="string">'orepiya'</span>);</pre>
             </div>
 
             <div style="text-align: center; margin-top: 6rem; padding-bottom: 4rem;">
