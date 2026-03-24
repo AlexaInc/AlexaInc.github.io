@@ -31,21 +31,26 @@ jobs:
 
       - name: Fetch AlexaTG Status
         run: |
-          RESPONSE=$(curl -s "https://api.telegram.org/bot${{ secrets.TG_TOKEN_TG }}/getWebhookInfo")
-          OK=$(echo $RESPONSE | jq -r '.ok')
-          PENDING=$(echo $RESPONSE | jq -r '.result.pending_update_count // 0')
+          RESPONSE=$(curl -s "https://hansaka1-alexatg.hf.space/" \
+            -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
+            -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" \
+            -H "cache-control: max-age=0" \
+            -H "priority: u=0, i" \
+            -H 'sec-ch-ua: "Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"' \
+            -H "sec-ch-ua-mobile: ?0" \
+            -H 'sec-ch-ua-platform: \"Windows\"' \
+            -H "sec-fetch-dest: document" \
+            -H "sec-fetch-mode: navigate" \
+            -H "sec-fetch-site: none" \
+            -H "sec-fetch-user: ?1" \
+            -H "upgrade-insecure-requests: 1")
           
-          if [ "$OK" = "true" ]; then
-            if [ "$PENDING" -lt 50 ]; then
-              STATUS="ONLINE"
-              UPDATE="Processing messages normally"
-            else
-              STATUS="DELAYED"
-              UPDATE="$PENDING updates pending (Lagging)"
-            fi
+          if echo "$RESPONSE" | grep -qi "alive"; then
+            STATUS="ONLINE"
+            UPDATE="System: Active & Responsive"
           else
             STATUS="OFFLINE"
-            UPDATE="API Unreachable"
+            UPDATE="System: Offline / Starting"
           fi
           echo "TG_STATUS=$STATUS" >> $GITHUB_ENV
           echo "TG_UPDATE=$UPDATE" >> $GITHUB_ENV
@@ -96,7 +101,7 @@ jobs:
             -H "sec-fetch-user: ?1" \
             -H "upgrade-insecure-requests: 1")
           
-          if echo "$RESPONSE" | grep -q "Alive"; then
+          if echo "$RESPONSE" | grep -qi "alive"; then
             STATUS="ONLINE"
             UPDATE="System: Active & Responsive"
           else
