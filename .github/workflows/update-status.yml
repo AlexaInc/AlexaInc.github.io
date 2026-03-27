@@ -19,8 +19,8 @@ jobs:
 
       - name: Fetch WhatsApp (Koyeb) Status
         run: |
-          STATUS_JSON=$(curl -s "https://hansaka1-alexa.hf.space/status")
-          PHONE_JSON=$(curl -s "https://hansaka1-alexa.hf.space/get-phone-number")
+          STATUS_JSON=$(curl -s "https://alexaincsl-alexa.hf.space/status")
+          PHONE_JSON=$(curl -s "https://alexaincsl-alexa.hf.space/get-phone-number")
           
           # Use jq to extract values or set defaults
           WA_STATUS=$(echo $STATUS_JSON | jq -r '.status // "OFFLINE"')
@@ -31,14 +31,14 @@ jobs:
 
       - name: Fetch AlexaTG Status
         run: |
-          RESPONSE=$(curl -s "https://hansaka1-alexatg.hf.space/" \
+          RESPONSE=$(curl -s "https://alexatgsl-alexatg.hf.space/" \
             -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
             -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" \
             -H "cache-control: max-age=0" \
             -H "priority: u=0, i" \
-            -H 'sec-ch-ua: "Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"' \
+            -H 'sec-ch-ua: "Not=A?Brand";v="24", "Chromium";v="140"' \
             -H "sec-ch-ua-mobile: ?0" \
-            -H 'sec-ch-ua-platform: \"Windows\"' \
+            -H 'sec-ch-ua-platform: "Windows"' \
             -H "sec-fetch-dest: document" \
             -H "sec-fetch-mode: navigate" \
             -H "sec-fetch-site: none" \
@@ -55,9 +55,9 @@ jobs:
           echo "TG_STATUS=$STATUS" >> $GITHUB_ENV
           echo "TG_UPDATE=$UPDATE" >> $GITHUB_ENV
 
-      - name: Keep Additional Spaces Alive
+      - name: Fetch Snowstrom Status
         run: |
-          curl -s "https://hansaka1-snowstrom.hf.space/" \
+          RESPONSE=$(curl -s "https://alexasnowst-snowstrom.hf.space/" \
             -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
             -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" \
             -H "cache-control: max-age=0" \
@@ -69,25 +69,21 @@ jobs:
             -H "sec-fetch-mode: navigate" \
             -H "sec-fetch-site: none" \
             -H "sec-fetch-user: ?1" \
-            -H "upgrade-insecure-requests: 1" > /dev/null || true
-            
-          curl -s "https://hansaka1-tgtgjhbt.hf.space/" \
-            -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
-            -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" \
-            -H "cache-control: max-age=0" \
-            -H "priority: u=0, i" \
-            -H 'sec-ch-ua: "Not=A?Brand";v="24", "Chromium";v="140"' \
-            -H "sec-ch-ua-mobile: ?0" \
-            -H 'sec-ch-ua-platform: "Windows"' \
-            -H "sec-fetch-dest: document" \
-            -H "sec-fetch-mode: navigate" \
-            -H "sec-fetch-site: none" \
-            -H "sec-fetch-user: ?1" \
-            -H "upgrade-insecure-requests: 1" > /dev/null || true
+            -H "upgrade-insecure-requests: 1")
+          
+          if echo "$RESPONSE" | grep -qi "alive"; then
+            STATUS="ONLINE"
+            UPDATE="System: Active & Responsive"
+          else
+            STATUS="OFFLINE"
+            UPDATE="System: Offline / Starting"
+          fi
+          echo "SNOW_STATUS=$STATUS" >> $GITHUB_ENV
+          echo "SNOW_UPDATE=$UPDATE" >> $GITHUB_ENV
 
       - name: Fetch Alexa Music Status
         run: |
-          RESPONSE=$(curl -s "https://hazuu12-alexamusic.hf.space/" \
+          RESPONSE=$(curl -s "https://alexaformusic-alexamusic.hf.space/" \
             -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
             -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" \
             -H "cache-control: max-age=0" \
@@ -128,6 +124,10 @@ jobs:
             "alexaxmusic": {
               "status": "${{ env.MUSIC_STATUS }}",
               "update": "${{ env.MUSIC_UPDATE }}"
+            },
+            "snowstrom": {
+              "status": "${{ env.SNOW_STATUS }}",
+              "update": "${{ env.SNOW_UPDATE }}"
             },
             "last_check": "$(date -u)"
           }
