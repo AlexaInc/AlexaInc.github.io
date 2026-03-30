@@ -12,5 +12,13 @@
         "status": "ONLINE",
         "update": "Processing messages normally"
     },
+    "snowstrom": {
+        "status": "ONLINE",
+        "update": "Processing messages normally"
+    },
+    "quoteapi": {
+        "status": "ONLINE",
+        "update": "System: Active & Responsive"
+    },
     "last_check": "Initial Setup"
 }

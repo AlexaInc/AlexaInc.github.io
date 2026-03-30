@@ -20,8 +20,10 @@ async function updateBotStatus(statusElementId, updateElementId) {
         'alexa-v3': 'alexa-v3',
         'alexatg': 'alexatg',
         'alexaxmusic': 'alexaxmusic',
-        'snowstorm': 'snowstrom'
+        'snowstorm': 'snowstrom',
+        'quoteapi': 'quoteapi'
     };
+
     const botId = pageIdMap[folderName];
 
     if (!botId) return;
@@ -150,7 +152,46 @@ async function updateBotStatus(statusElementId, updateElementId) {
                     console.warn("Failed to fetch real-time status from Hugging Face for snowstrom:", e);
                 }
             }
+
+            // Fetch real-time status for quoteapi from Hugging Face
+            if (botId === 'quoteapi') {
+                try {
+                    const hfRes = await fetch("https://huggingface.co/spaces/quotlytga/quoteapi", {
+                        "headers": {
+                            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                            "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
+                            "cache-control": "max-age=0",
+                            "priority": "u=0, i",
+                            "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+                            "sec-ch-ua-mobile": "?0",
+                            "sec-ch-ua-platform": "\"Windows\"",
+                            "sec-fetch-dest": "document",
+                            "sec-fetch-mode": "navigate",
+                            "sec-fetch-site": "none",
+                            "sec-fetch-user": "?1",
+                            "upgrade-insecure-requests": "1"
+                        },
+                        "body": null,
+                        "method": "GET",
+                        "mode": "cors",
+                        "credentials": "omit"
+                    });
+
+                    const text = await hfRes.text();
+                    if (hfRes.ok && (text.includes("Alive") || text.includes("Quote"))) {
+                        botData.status = "ONLINE";
+                        botData.update = "System: Active & Responsive";
+                    } else {
+                        throw new Error("Not Alive");
+                    }
+                } catch (e) {
+                    botData.status = "OFFLINE";
+                    botData.update = "System: Offline / Starting";
+                    console.warn("Failed to fetch real-time status from Hugging Face for quoteapi:", e);
+                }
+            }
         }
+
 
         // Update UI from JSON
         if (statusText) {
