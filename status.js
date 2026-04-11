@@ -21,8 +21,10 @@ async function updateBotStatus(statusElementId, updateElementId) {
         'alexatg': 'alexatg',
         'alexaxmusic': 'alexaxmusic',
         'snowstorm': 'snowstrom',
-        'quoteapi': 'quoteapi'
+        'quoteapi': 'quoteapi',
+        'anarkanimusic': 'anarkanimusic'
     };
+
 
     const botId = pageIdMap[folderName];
 
@@ -190,7 +192,46 @@ async function updateBotStatus(statusElementId, updateElementId) {
                     console.warn("Failed to fetch real-time status from Hugging Face for quoteapi:", e);
                 }
             }
+
+            // Fetch real-time status for anarkanimusic from Hugging Face
+            if (botId === 'anarkanimusic') {
+                try {
+                    const hfRes = await fetch("https://huggingface.co/spaces/anarkanimusic/anarkanimuisic", {
+                        "headers": {
+                            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                            "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
+                            "cache-control": "max-age=0",
+                            "priority": "u=0, i",
+                            "sec-ch-ua": "\"Not=A?Brand\";v=\"24\", \"Chromium\";v=\"140\"",
+                            "sec-ch-ua-mobile": "?0",
+                            "sec-ch-ua-platform": "\"Windows\"",
+                            "sec-fetch-dest": "document",
+                            "sec-fetch-mode": "navigate",
+                            "sec-fetch-site": "none",
+                            "sec-fetch-user": "?1",
+                            "upgrade-insecure-requests": "1"
+                        },
+                        "body": null,
+                        "method": "GET",
+                        "mode": "cors",
+                        "credentials": "omit"
+                    });
+
+                    const text = await hfRes.text();
+                    if (hfRes.ok && (text.includes("Alive") || text.includes("Music"))) {
+                        botData.status = "ONLINE";
+                        botData.update = "System: Active & Responsive";
+                    } else {
+                        throw new Error("Not Alive");
+                    }
+                } catch (e) {
+                    botData.status = "OFFLINE";
+                    botData.update = "System: Offline / Starting";
+                    console.warn("Failed to fetch real-time status from Hugging Face for anarkanimusic:", e);
+                }
+            }
         }
+
 
 
         // Update UI from JSON
