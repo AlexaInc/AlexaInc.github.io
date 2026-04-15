@@ -28,5 +28,9 @@
         "status": "ONLINE",
         "update": "System: Active & Responsive"
     },
+    "aurudubot": {
+        "status": "ONLINE",
+        "update": "System: Active & Responsive"
+    },
     "last_check": "Initial Setup"
 }
