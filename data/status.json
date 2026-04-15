@@ -32,5 +32,9 @@
         "status": "ONLINE",
         "update": "System: Active & Responsive"
     },
+    "wgsrobot": {
+        "status": "ONLINE",
+        "update": "System: Active & Responsive"
+    },
     "last_check": "Initial Setup"
 }
