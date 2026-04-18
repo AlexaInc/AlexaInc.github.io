@@ -245,6 +245,33 @@ jobs:
           echo "WGS_STATUS=$STATUS" >> $GITHUB_ENV
           echo "WGS_UPDATE=$UPDATE" >> $GITHUB_ENV
 
+      - name: Keep AlexaMusicGo Alive
+        run: |
+          RESPONSE=$(curl -s "https://alexamusicgo-alexamusic.hf.space/" \
+            -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
+            -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" \
+            -H "cache-control: max-age=0" \
+            -H "priority: u=0, i" \
+            -H 'sec-ch-ua: "Not=A?Brand";v="24", "Chromium";v="140"' \
+            -H "sec-ch-ua-mobile: ?0" \
+            -H 'sec-ch-ua-platform: "Windows"' \
+            -H "sec-fetch-dest: document" \
+            -H "sec-fetch-mode: navigate" \
+            -H "sec-fetch-site: none" \
+            -H "sec-fetch-user: ?1" \
+            -H "upgrade-insecure-requests: 1")
+          
+          if echo "$RESPONSE" | grep -qi "alive\|Music"; then
+            STATUS="ONLINE"
+            UPDATE="System: Active & Responsive"
+          else
+            STATUS="OFFLINE"
+            UPDATE="System: Offline / Starting"
+          fi
+          
+          echo "ALEXAGO_STATUS=$STATUS" >> $GITHUB_ENV
+          echo "ALEXAGO_UPDATE=$UPDATE" >> $GITHUB_ENV
+
 
       - name: Generate status.json
         run: |
@@ -287,7 +314,12 @@ jobs:
               "status": "${{ env.WGS_STATUS }}",
               "update": "${{ env.WGS_UPDATE }}"
             },
+            "alexamusicgo": {
+              "status": "${{ env.ALEXAGO_STATUS }}",
+              "update": "${{ env.ALEXAGO_UPDATE }}"
+            },
             "last_check": "$(date -u)"
+
 
 
           }
