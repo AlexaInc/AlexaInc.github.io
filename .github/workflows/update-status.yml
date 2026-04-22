@@ -19,15 +19,22 @@ jobs:
 
       - name: Fetch WhatsApp (Koyeb) Status
         run: |
-          STATUS_JSON=$(curl -s "https://alexaincsl-alexa.hf.space/status")
-          PHONE_JSON=$(curl -s "https://alexaincsl-alexa.hf.space/get-phone-number")
+          STATUS_JSON=$(curl -s "https://alexaincsl-alexa.hf.space/status" || echo "{}")
+          PHONE_JSON=$(curl -s "https://alexaincsl-alexa.hf.space/get-phone-number" || echo "{}")
           
-          # Use jq to extract values or set defaults
-          WA_STATUS=$(echo $STATUS_JSON | jq -r '.status // "OFFLINE"')
-          WA_PHONE=$(echo $PHONE_JSON | jq -r '.phoneNumber // "94705327164"')
+          # Use jq to extract values or set defaults, handle invalid JSON by defaulting
+          WA_STATUS=$(echo "$STATUS_JSON" | jq -r '.status // "OFFLINE"' 2>/dev/null || echo "OFFLINE")
+          WA_PHONE=$(echo "$PHONE_JSON" | jq -r '.phoneNumber // "94705327164"' 2>/dev/null || echo "94705327164")
           
+          if [ "$WA_STATUS" == "ONLINE" ]; then
+            WA_UPDATE="System: Active & Responsive"
+          else
+            WA_UPDATE="System: Offline / Starting"
+          fi
+
           echo "WA_STATUS=$WA_STATUS" >> $GITHUB_ENV
           echo "WA_PHONE=$WA_PHONE" >> $GITHUB_ENV
+          echo "WA_UPDATE=$WA_UPDATE" >> $GITHUB_ENV
 
       - name: Fetch AlexaTG Status
         run: |
@@ -43,7 +50,7 @@ jobs:
             -H "sec-fetch-mode: navigate" \
             -H "sec-fetch-site: none" \
             -H "sec-fetch-user: ?1" \
-            -H "upgrade-insecure-requests: 1")
+            -H "upgrade-insecure-requests: 1" || echo "offline")
           
           if echo "$RESPONSE" | grep -qi "alive"; then
             STATUS="ONLINE"
@@ -69,7 +76,7 @@ jobs:
             -H "sec-fetch-mode: navigate" \
             -H "sec-fetch-site: none" \
             -H "sec-fetch-user: ?1" \
-            -H "upgrade-insecure-requests: 1")
+            -H "upgrade-insecure-requests: 1" || echo "offline")
           
           if echo "$RESPONSE" | grep -qi "alive"; then
             STATUS="ONLINE"
@@ -95,7 +102,7 @@ jobs:
             -H "sec-fetch-mode: navigate" \
             -H "sec-fetch-site: none" \
             -H "sec-fetch-user: ?1" \
-            -H "upgrade-insecure-requests: 1")
+            -H "upgrade-insecure-requests: 1" || echo "offline")
           
           if echo "$RESPONSE" | grep -qi "alive"; then
             STATUS="ONLINE"
@@ -122,7 +129,7 @@ jobs:
             -H "sec-fetch-mode: navigate" \
             -H "sec-fetch-site: none" \
             -H "sec-fetch-user: ?1" \
-            -H "upgrade-insecure-requests: 1")
+            -H "upgrade-insecure-requests: 1" || echo "offline")
           
           if echo "$RESPONSE" | grep -qi "alive\|Quote"; then
             STATUS="ONLINE"
@@ -150,7 +157,7 @@ jobs:
             -H "sec-fetch-mode: navigate" \
             -H "sec-fetch-site: none" \
             -H "sec-fetch-user: ?1" \
-            -H "upgrade-insecure-requests: 1")
+            -H "upgrade-insecure-requests: 1" || echo "offline")
           
           if echo "$RESPONSE" | grep -qi "alive\|Music"; then
             STATUS="ONLINE"
@@ -178,7 +185,7 @@ jobs:
             -H "sec-fetch-mode: navigate" \
             -H "sec-fetch-site: none" \
             -H "sec-fetch-user: ?1" \
-            -H "upgrade-insecure-requests: 1")
+            -H "upgrade-insecure-requests: 1" || echo "offline")
           
           if echo "$RESPONSE" | grep -qi "alive\|Wordle"; then
             STATUS="ONLINE"
@@ -205,7 +212,7 @@ jobs:
             -H "sec-fetch-mode: navigate" \
             -H "sec-fetch-site: none" \
             -H "sec-fetch-user: ?1" \
-            -H "upgrade-insecure-requests: 1")
+            -H "upgrade-insecure-requests: 1" || echo "offline")
           
           if echo "$RESPONSE" | grep -qi "alive\|Aurudu"; then
             STATUS="ONLINE"
@@ -232,7 +239,7 @@ jobs:
             -H "sec-fetch-mode: navigate" \
             -H "sec-fetch-site: none" \
             -H "sec-fetch-user: ?1" \
-            -H "upgrade-insecure-requests: 1")
+            -H "upgrade-insecure-requests: 1" || echo "offline")
           
           if echo "$RESPONSE" | grep -qi "alive\|WGS"; then
             STATUS="ONLINE"
@@ -259,7 +266,7 @@ jobs:
             -H "sec-fetch-mode: navigate" \
             -H "sec-fetch-site: none" \
             -H "sec-fetch-user: ?1" \
-            -H "upgrade-insecure-requests: 1")
+            -H "upgrade-insecure-requests: 1" || echo "offline")
           
           if echo "$RESPONSE" | grep -qi "alive\|Music"; then
             STATUS="ONLINE"
@@ -279,7 +286,7 @@ jobs:
           {
             "alexa-v3": {
               "status": "${{ env.WA_STATUS }}",
-              "update": "System: Active & Responsive",
+              "update": "${{ env.WA_UPDATE }}",
               "phoneNumber": "${{ env.WA_PHONE }}"
             },
             "alexatg": {
