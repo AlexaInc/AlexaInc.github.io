@@ -41,8 +41,12 @@
     "update": "System: Active & Responsive"
   },
   "ssnboy": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
-  "last_check": "Wed May  6 04:04:08 UTC 2026"
+  "last_check": "Wed May  6 04:37:35 UTC 2026"
+
+
+
+
 }
