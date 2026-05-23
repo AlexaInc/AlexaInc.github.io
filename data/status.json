@@ -5,8 +5,8 @@
     "phoneNumber": "94705327164"
   },
   "alexatg": {
-    "status": "OFFLINE",
-    "update": "System: Offline / Starting"
+    "status": "ONLINE",
+    "update": "System: Active & Responsive"
   },
   "alexaxmusic": {
     "status": "ONLINE",
@@ -45,20 +45,20 @@
     "update": "System: Offline / Starting"
   },
   "queennoxi": {
-    "status": "OFFLINE",
-    "update": "System: Offline / Starting"
+    "status": "ONLINE",
+    "update": "System: Active & Responsive"
   },
   "teledrive": {
-    "status": "OFFLINE",
-    "update": "System: Offline / Starting"
+    "status": "ONLINE",
+    "update": "System: Active & Responsive"
   },
   "queennoxililly": {
-    "status": "OFFLINE",
-    "update": "System: Offline / Starting"
+    "status": "ONLINE",
+    "update": "System: Active & Responsive"
   },
   "quotecpp": {
     "status": "OFFLINE",
     "update": "System: Offline / Starting"
   },
-  "last_check": "Sat May 23 06:30:00 UTC 2026"
+  "last_check": "Sat May 23 08:30:52 UTC 2026"
 }
