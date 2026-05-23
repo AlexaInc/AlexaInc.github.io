@@ -44,9 +44,21 @@
     "status": "OFFLINE",
     "update": "System: Offline / Starting"
   },
-  "last_check": "Sat May 23 06:11:08 UTC 2026"
-
-
-
-
+  "queennoxi": {
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
+  },
+  "teledrive": {
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
+  },
+  "queennoxililly": {
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
+  },
+  "quotecpp": {
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
+  },
+  "last_check": "Sat May 23 06:30:00 UTC 2026"
 }
