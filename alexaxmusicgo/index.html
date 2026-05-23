@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlexaMusicGo - AlexaInc</title>
+    <meta name="description" content="Go-based high-performance music streaming bot for Telegram groups with advanced audio processing.">
+    <link rel="stylesheet" href="/index.css">
+    <link rel="icon" href="https://github.com/AlexaInc.png" type="image/png">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2210833108870700"
+        crossorigin="anonymous"></script>
+    <style>
+        .realm-hero {
+            background: radial-gradient(circle at center, var(--glow-music) 0%, transparent 70%);
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-glow"></div>
+    <div class="grid-overlay"></div>
+
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">AlexaInc<span style="color: var(--accent-music);">.</span></a>
+            <div class="nav-links">
+                <a href="/" class="nav-link" data-i18n="nav_ecosystem">Ecosystem</a>
+                <a href="/about/" class="nav-link" data-i18n="nav_about">About Me</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn" id="lang-btn">EN</button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button onclick="setLanguage('en')">English</button>
+                        <button onclick="setLanguage('si')">සිංහල</button>
+                        <button onclick="setLanguage('ta')">தமிழ்</button>
+                        <button onclick="setLanguage('fr')">Français</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero realm-hero">
+            <div class="status-header">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span><span data-i18n="sys_status">System Status</span>: <span id="bot-status-text"
+                            style="color: var(--accent-music); font-weight: 700;">FETCHING...</span></span>
+                </div>
+                <div id="bot-update-text" class="mono"
+                    style="font-size: 0.75rem; opacity: 0; transition: opacity 0.5s;">
+                    Scanning...</div>
+            </div>
+            <div class="hero-icon" style="color: var(--accent-music); margin-bottom: 2rem;">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="80" height="80"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"></path></svg>
+            </div>
+            <div class="pill multimedia" style="margin-bottom: 1.5rem;">Music Streaming</div>
+            <h1 style="color: var(--accent-music);">AlexaMusicGo</h1>
+            <p>Go-based high-performance music streaming bot for Telegram groups with advanced audio processing.</p>
+
+            <div style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://alexamusicgo-alexamusic.hf.space/" target="_blank" class="btn btn-primary"
+                    style="background: var(--accent-music); color: #fff; display: flex; align-items: center; gap: 0.5rem;">
+                    <span>Open Service</span>
+                </a>
+                <a href="https://github.com/AlexaInc/alexaxmusicgo" class="btn btn-outline" data-i18n="view_source"
+                    style="border-color: var(--accent-music);">View Source Code</a>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="grid-2">
+                <div class="glass-panel" style="padding: 2rem; border-color: var(--glow-music);">
+                    <h2 style="color: var(--accent-music); margin-bottom: 2rem;">Features</h2>
+                    
+                    <div class="feature-item">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">🎵 Hi-Fi Audio</h3>
+                        <p style="color: var(--text-secondary);">Crystal clear audio streaming with support for multiple formats.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">⚡ Go Performance</h3>
+                        <p style="color: var(--text-secondary);">Built with Go for maximum speed and minimal resource usage.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">🎧 Queue System</h3>
+                        <p style="color: var(--text-secondary);">Advanced queue management with skip, shuffle, and repeat features.</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel" style="padding: 2rem;">
+                    <h2 style="color: var(--accent-music); margin-bottom: 2rem;">Technical Specs</h2>
+                    <ul class="mono" style="list-style: none; display: flex; flex-direction: column; gap: 1.5rem;">
+                        <li><span style="color: var(--accent-music)">[#]</span> Platform: Telegram</li><li><span style="color: var(--accent-music)">[#]</span> Runtime: Go</li><li><span style="color: var(--accent-music)">[#]</span> Type: Music Streaming Bot</li><li><span style="color: var(--accent-music)">[#]</span> Source: AlexaInc/alexaxmusicgo</li>
+                    </ul>
+
+                    <div
+                        style="margin-top: 3rem; padding: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px dashed var(--accent-music);">
+                        <p class="mono" style="font-size: 0.9rem; opacity: 0.8;">"Part of the AlexaInc Bot Ecosystem."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin-top: 4rem;">
+            <a href="/" class="btn btn-outline" data-i18n="back_ecosystem">← Back to Ecosystem</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="padding: 4rem 0; border-top: 1px solid var(--border-color); text-align: center;">
+            <p class="mono" style="opacity: 0.6;">© 2026 Hansaka Rasanjana (AlexaInc). Built for the Decentralized
+                Social World.</p>
+        </div>
+    </footer>
+    <script src="/status.js"></script>
+    <script src="/lang.js"></script>
+    <script src="/chat.js"></script>
+</body>
+
+</html>

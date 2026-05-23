@@ -27,11 +27,7 @@ async function updateBotStatus(statusElementId, updateElementId) {
         'aurudubot': 'aurudubot',
         'wgsrobot': 'wgsrobot',
         'alexamusicgo': 'alexamusicgo',
-        'ssnboy': 'ssnboy',
-        'queennoxi': 'queennoxi',
-        'teledrive': 'teledrive',
-        'queennoxililly': 'queennoxililly',
-        'quotecpp': 'quotecpp'
+        'ssnboy': 'ssnboy'
     };
 
 
