@@ -29,8 +29,8 @@
     "update": "System: Active & Responsive"
   },
   "aurudubot": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "wgsrobot": {
     "status": "OFFLINE",
@@ -60,5 +60,5 @@
     "status": "OFFLINE",
     "update": "System: Offline / Starting"
   },
-  "last_check": "Fri May 29 22:19:12 UTC 2026"
+  "last_check": "Fri May 29 23:53:10 UTC 2026"
 }
