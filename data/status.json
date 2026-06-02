@@ -5,32 +5,32 @@
     "phoneNumber": "94705327164"
   },
   "alexatg": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "alexaxmusic": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "snowstrom": {
     "status": "OFFLINE",
     "update": "System: Offline / Starting"
   },
   "quoteapi": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "anarkanimusic": {
     "status": "ONLINE",
     "update": "System: Active & Responsive"
   },
   "wordsolver": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "aurudubot": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "wgsrobot": {
     "status": "OFFLINE",
@@ -45,8 +45,8 @@
     "update": "System: Offline / Starting"
   },
   "queennoxi": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "teledrive": {
     "status": "ONLINE",
@@ -60,5 +60,5 @@
     "status": "OFFLINE",
     "update": "System: Offline / Starting"
   },
-  "last_check": "Tue Jun  2 01:57:19 UTC 2026"
+  "last_check": "Tue Jun  2 06:44:53 UTC 2026"
 }
