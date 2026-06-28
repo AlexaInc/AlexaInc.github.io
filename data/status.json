@@ -45,8 +45,8 @@
     "update": "System: Offline / Starting"
   },
   "queennoxi": {
-    "status": "OFFLINE",
-    "update": "System: Offline / Starting"
+    "status": "ONLINE",
+    "update": "System: Active & Responsive"
   },
   "teledrive": {
     "status": "ONLINE",
@@ -60,5 +60,5 @@
     "status": "OFFLINE",
     "update": "System: Offline / Starting"
   },
-  "last_check": "Sun Jun 28 04:43:41 UTC 2026"
+  "last_check": "Sun Jun 28 08:12:04 UTC 2026"
 }
