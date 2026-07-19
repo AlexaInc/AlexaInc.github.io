@@ -1,0 +1,31 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ADD8"/>
+      <stop offset="100%" stop-color="#0A2540"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#g)"/>
+  <g transform="translate(256 220)">
+    <circle r="82" fill="white"/>
+    <!-- Go gopher-ish but music -->
+    <g transform="translate(0 4)">
+      <path d="M -18 -26 C -18 -30 -14 -33 -10 -33 L 12 -33 C 20 -33 26 -28 26 -20 L 26 16 C 26 24 20 28 12 28 L -8 28 C -16 28 -22 24 -22 16 Z" fill="#00ADD8" stroke="#0A2540" stroke-width="3"/>
+      <!-- note -->
+      <g transform="translate(4 -2)">
+        <circle cx="0" cy="14" r="11" fill="#0A2540"/>
+        <rect x="8" y="-16" width="5" height="30" fill="#0A2540"/>
+      </g>
+      <circle cx="-10" cy="-18" r="4" fill="#0A2540"/>
+      <circle cx="8" cy="-18" r="4" fill="#0A2540"/>
+    </g>
+  </g>
+  <!-- speed lines -->
+  <g transform="translate(256 332)" stroke="white" stroke-linecap="round" opacity="0.8">
+    <line x1="-92" y1="0" x2="-60" y2="0" stroke-width="7" />
+    <line x1="-44" y1="0" x2="-16" y2="0" stroke-width="7" opacity="0.6"/>
+    <line x1="16" y1="0" x2="44" y2="0" stroke-width="7" opacity="0.6"/>
+    <line x1="60" y1="0" x2="92" y2="0" stroke-width="7"/>
+  </g>
+  <text x="256" y="460" font-family="Inter, sans-serif" font-weight="800" font-size="20" fill="white" text-anchor="middle" letter-spacing="1.5">ALEXA MUSIC GO</text>
+</svg>

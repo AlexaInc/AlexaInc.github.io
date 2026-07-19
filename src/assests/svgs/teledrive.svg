@@ -1,0 +1,26 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#g)"/>
+  <g transform="translate(256 240)">
+    <!-- cloud -->
+    <ellipse cx="0" cy="20" rx="120" ry="56" fill="white" opacity="0.95"/>
+    <ellipse cx="-48" cy="0" rx="56" ry="56" fill="white"/>
+    <ellipse cx="16" cy="-18" rx="70" ry="62" fill="white"/>
+    <ellipse cx="66" cy="-4" rx="48" ry="48" fill="white"/>
+    <!-- upload arrow inside cloud but colored -->
+    <g transform="translate(0 10)">
+      <circle r="32" fill="#0EA5E9"/>
+      <path d="M 0 -12 L 0 10 M -8 -2 L 0 -12 L 8 -2" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+  <g transform="translate(256 350)">
+    <rect x="-80" y="0" width="160" height="8" rx="4" fill="white" opacity="0.35"/>
+    <rect x="-48" y="16" width="96" height="6" rx="3" fill="white" opacity="0.25"/>
+  </g>
+  <text x="256" y="460" font-family="Inter, sans-serif" font-weight="800" font-size="26" fill="white" text-anchor="middle" letter-spacing="2">TELEDRIVE</text>
+</svg>

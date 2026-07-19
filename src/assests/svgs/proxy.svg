@@ -1,0 +1,35 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="dock" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#g)"/>
+  <g transform="translate(256 230)">
+    <!-- network proxy nodes -->
+    <circle cx="-68" cy="0" r="18" fill="white" opacity="0.9"/>
+    <circle cx="68" cy="0" r="18" fill="white" opacity="0.9"/>
+    <rect x="-36" y="-38" width="72" height="76" rx="18" fill="white"/>
+    <!-- dock whale icon-ish -->
+    <g transform="translate(0 2)">
+      <rect x="-20" y="-14" width="40" height="8" rx="3" fill="#0F172A" opacity="0.9"/>
+      <rect x="-20" y="-2" width="40" height="8" rx="3" fill="#38BDF8"/>
+      <rect x="-20" y="10" width="40" height="8" rx="3" fill="#0F172A" opacity="0.6"/>
+    </g>
+    <g stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.5">
+      <line x1="-50" y1="0" x2="-36" y2="0"/>
+      <line x1="36" y1="0" x2="50" y2="0"/>
+    </g>
+    <!-- lock/secure -->
+    <g transform="translate(0 -64)">
+      <rect x="-14" y="0" width="28" height="20" rx="5" fill="#22C55E"/>
+      <path d="M -8 0 L -8 -6 C -8 -10 -4 -14 0 -14 C 4 -14 8 -10 8 -6 L 8 0" fill="none" stroke="#22C55E" stroke-width="3"/>
+    </g>
+  </g>
+  <text x="256" y="460" font-family="Inter, monospace" font-weight="800" font-size="26" fill="white" text-anchor="middle" letter-spacing="2">ALEXA PROXY</text>
+</svg>

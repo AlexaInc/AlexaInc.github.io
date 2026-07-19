@@ -1,0 +1,34 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="py" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3776AB"/>
+      <stop offset="100%" stop-color="#FFD43B"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#g)"/>
+  <!-- python snakes -->
+  <g transform="translate(256 210)">
+    <!-- brackets -->
+    <text x="-138" y="22" font-family="monospace" font-size="110" font-weight="800" fill="#3776AB" opacity="0.9">{</text>
+    <text x="86" y="22" font-family="monospace" font-size="110" font-weight="800" fill="#FFD43B" opacity="0.9">}</text>
+    <g transform="translate(0 0)">
+      <circle r="78" fill="white" opacity="0.06"/>
+      <circle r="62" fill="none" stroke="url(#py)" stroke-width="6" stroke-linecap="round" stroke-dasharray="60 20"/>
+      <!-- py logo stylized -->
+      <g>
+        <path d="M -22 -26 C -22 -36  -10 -40 0 -40 C 10 -40 22 -36 22 -26 L 22 -10 L 6 -10 L 6 -20 C 6 -24 3 -26 0 -26 C -3 -26 -6 -24 -6 -20 L -6 18 C -6 22 -3 24 0 24 C 3 24 6 22 6 18 L 6 10 L 22 10 L 22 18 C 22 28 10 32 0 32 C -10 32 -22 28 -22 18 Z" fill="#3776AB"/>
+        <circle cx="0" cy="-30" r="4" fill="white"/>
+        <circle cx="0" cy="20" r="4" fill="#FFD43B"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(256 330)">
+    <rect x="-72" y="0" width="144" height="8" rx="4" fill="#3776AB"/>
+    <rect x="-52" y="16" width="104" height="8" rx="4" fill="#FFD43B" opacity="0.85"/>
+  </g>
+  <text x="256" y="460" font-family="Inter, monospace" font-weight="800" font-size="24" fill="white" text-anchor="middle" letter-spacing="1">pybaileys core</text>
+</svg>

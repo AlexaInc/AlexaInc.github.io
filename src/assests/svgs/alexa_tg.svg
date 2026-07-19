@@ -1,0 +1,26 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#2AABEE"/>
+      <stop offset="100%" stop-color="#0F4C75"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#g)"/>
+  <circle cx="256" cy="230" r="108" fill="white" fill-opacity="0.15"/>
+  <circle cx="256" cy="230" r="84" fill="white"/>
+  <!-- Telegram paper plane stylized with management shield -->
+  <g transform="translate(256 235)">
+    <path d="M -38 -12 L 42 -28 C 46 -29 50 -26 48 -22 L 28 28 C 26 33 20 35 16 31 L 2 18 L -12 32 C -15 35 -20 34 -20 30 L -16 12 L -38 -12 Z" fill="#2AABEE"/>
+    <path d="M -16 12 L 2 18 L 8 8" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  </g>
+  <!-- small bot badge -->
+  <g transform="translate(312 300)">
+    <circle r="22" fill="#0F4C75"/>
+    <text x="0" y="5" font-family="monospace" font-size="14" font-weight="800" fill="white" text-anchor="middle">AI</text>
+  </g>
+  <text x="256" y="460" font-family="Inter, sans-serif" font-weight="800" font-size="26" fill="white" text-anchor="middle" letter-spacing="2">ALEXA TG</text>
+</svg>
