@@ -38,7 +38,7 @@ jobs:
 
       - name: Fetch AlexaTG Status
         run: |
-          RESPONSE=$(curl -s "https://alexatgsl-alexatg.hf.space/" \
+          RESPONSE=$(curl -s "https://alexaslgtbot-syssync-core-v1.hf.space/" \
             -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
             -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" \
             -H "cache-control: max-age=0" \
@@ -142,7 +142,6 @@ jobs:
           echo "QUOTE_STATUS=$STATUS" >> $GITHUB_ENV
           echo "QUOTE_UPDATE=$UPDATE" >> $GITHUB_ENV
 
-
       - name: Keep Anarkani Music Alive
         run: |
           RESPONSE=$(curl -s "https://anarkanimusic-anarkanimuisic.hf.space/" \
@@ -169,7 +168,6 @@ jobs:
           
           echo "ANARKANI_STATUS=$STATUS" >> $GITHUB_ENV
           echo "ANARKANI_UPDATE=$UPDATE" >> $GITHUB_ENV
-
 
       - name: Keep Wordle Solver Alive
         run: |
@@ -306,7 +304,140 @@ jobs:
           echo "SSNBOY_STATUS=$STATUS" >> $GITHUB_ENV
           echo "SSNBOY_UPDATE=$UPDATE" >> $GITHUB_ENV
 
+      - name: Keep Queen Noxi Alive
+        run: |
+          RESPONSE=$(curl -s "https://noxirobot-queennoxi.hf.space/" \
+            -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
+            -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" \
+            -H "cache-control: max-age=0" \
+            -H "priority: u=0, i" \
+            -H 'sec-ch-ua: "Not=A?Brand";v="24", "Chromium";v="140"' \
+            -H "sec-ch-ua-mobile: ?0" \
+            -H 'sec-ch-ua-platform: "Windows"' \
+            -H "sec-fetch-dest: document" \
+            -H "sec-fetch-mode: navigate" \
+            -H "sec-fetch-site: none" \
+            -H "sec-fetch-user: ?1" \
+            -H "upgrade-insecure-requests: 1" || echo "offline")
+          
+          if echo "$RESPONSE" | grep -qi "alive\|Queen\|running"; then
+            STATUS="ONLINE"
+            UPDATE="System: Active & Responsive"
+          else
+            STATUS="OFFLINE"
+            UPDATE="System: Offline / Starting"
+          fi
+          
+          echo "QUEENNOXI_STATUS=$STATUS" >> $GITHUB_ENV
+          echo "QUEENNOXI_UPDATE=$UPDATE" >> $GITHUB_ENV
 
+      - name: Keep TeleDrive Alive
+        run: |
+          RESPONSE=$(curl -s "https://tdrive-teledrive.hf.space/" \
+            -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
+            -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" \
+            -H "cache-control: max-age=0" \
+            -H "priority: u=0, i" \
+            -H 'sec-ch-ua: "Not=A?Brand";v="24", "Chromium";v="140"' \
+            -H "sec-ch-ua-mobile: ?0" \
+            -H 'sec-ch-ua-platform: "Windows"' \
+            -H "sec-fetch-dest: document" \
+            -H "sec-fetch-mode: navigate" \
+            -H "sec-fetch-site: none" \
+            -H "sec-fetch-user: ?1" \
+            -H "upgrade-insecure-requests: 1" || echo "offline")
+          
+          if echo "$RESPONSE" | grep -qi "alive\|TeleDrive\|Telegram\|Login"; then
+            STATUS="ONLINE"
+            UPDATE="System: Active & Responsive"
+          else
+            STATUS="OFFLINE"
+            UPDATE="System: Offline / Starting"
+          fi
+          
+          echo "TELEDRIVE_STATUS=$STATUS" >> $GITHUB_ENV
+          echo "TELEDRIVE_UPDATE=$UPDATE" >> $GITHUB_ENV
+
+      - name: Keep Queen Noxi Lilly Alive
+        run: |
+          RESPONSE=$(curl -s "https://noxirobot-queennoxililly.hf.space/" \
+            -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
+            -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" \
+            -H "cache-control: max-age=0" \
+            -H "priority: u=0, i" \
+            -H 'sec-ch-ua: "Not=A?Brand";v="24", "Chromium";v="140"' \
+            -H "sec-ch-ua-mobile: ?0" \
+            -H 'sec-ch-ua-platform: "Windows"' \
+            -H "sec-fetch-dest: document" \
+            -H "sec-fetch-mode: navigate" \
+            -H "sec-fetch-site: none" \
+            -H "sec-fetch-user: ?1" \
+            -H "upgrade-insecure-requests: 1" || echo "offline")
+          
+          if echo "$RESPONSE" | grep -qi "alive\|Queen\|running"; then
+            STATUS="ONLINE"
+            UPDATE="System: Active & Responsive"
+          else
+            STATUS="OFFLINE"
+            UPDATE="System: Offline / Starting"
+          fi
+          
+          echo "QUEENNOXILILLY_STATUS=$STATUS" >> $GITHUB_ENV
+          echo "QUEENNOXILILLY_UPDATE=$UPDATE" >> $GITHUB_ENV
+
+      - name: Keep QuoteCpp Alive
+        run: |
+          RESPONSE=$(curl -s "https://quotlytga-quotecpp.hf.space/" \
+            -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
+            -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" \
+            -H "cache-control: max-age=0" \
+            -H "priority: u=0, i" \
+            -H 'sec-ch-ua: "Not=A?Brand";v="24", "Chromium";v="140"' \
+            -H "sec-ch-ua-mobile: ?0" \
+            -H 'sec-ch-ua-platform: "Windows"' \
+            -H "sec-fetch-dest: document" \
+            -H "sec-fetch-mode: navigate" \
+            -H "sec-fetch-site: none" \
+            -H "sec-fetch-user: ?1" \
+            -H "upgrade-insecure-requests: 1" || echo "offline")
+          
+          if echo "$RESPONSE" | grep -qi "alive\|Quote\|running"; then
+            STATUS="ONLINE"
+            UPDATE="System: Active & Responsive"
+          else
+            STATUS="OFFLINE"
+            UPDATE="System: Offline / Starting"
+          fi
+          
+          echo "QUOTECPP_STATUS=$STATUS" >> $GITHUB_ENV
+          echo "QUOTECPP_UPDATE=$UPDATE" >> $GITHUB_ENV
+
+      - name: Keep nd Alive
+        run: |
+          RESPONSE=$(curl -s "https://hansaka1-Sql.hf.space/" \
+            -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
+            -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" \
+            -H "cache-control: max-age=0" \
+            -H "priority: u=0, i" \
+            -H 'sec-ch-ua: "Not=A?Brand";v="24", "Chromium";v="140"' \
+            -H "sec-ch-ua-mobile: ?0" \
+            -H 'sec-ch-ua-platform: "Windows"' \
+            -H "sec-fetch-dest: document" \
+            -H "sec-fetch-mode: navigate" \
+            -H "sec-fetch-site: none" \
+            -H "sec-fetch-user: ?1" \
+            -H "upgrade-insecure-requests: 1" || echo "offline")
+          
+          if echo "$RESPONSE" | grep -qi "alive\|Quote\|running"; then
+            STATUS="ONLINE"
+            UPDATE="System: Active & Responsive"
+          else
+            STATUS="OFFLINE"
+            UPDATE="System: Offline / Starting"
+          fi
+          
+          echo "QUOTECPP_STATUS=$STATUS" >> $GITHUB_ENV
+          echo "QUOTECPP_UPDATE=$UPDATE" >> $GITHUB_ENV
 
       - name: Generate status.json
         run: |
@@ -357,15 +488,25 @@ jobs:
               "status": "${{ env.SSNBOY_STATUS }}",
               "update": "${{ env.SSNBOY_UPDATE }}"
             },
+            "queennoxi": {
+              "status": "${{ env.QUEENNOXI_STATUS }}",
+              "update": "${{ env.QUEENNOXI_UPDATE }}"
+            },
+            "teledrive": {
+              "status": "${{ env.TELEDRIVE_STATUS }}",
+              "update": "${{ env.TELEDRIVE_UPDATE }}"
+            },
+            "queennoxililly": {
+              "status": "${{ env.QUEENNOXILILLY_STATUS }}",
+              "update": "${{ env.QUEENNOXILILLY_UPDATE }}"
+            },
+            "quotecpp": {
+              "status": "${{ env.QUOTECPP_STATUS }}",
+              "update": "${{ env.QUOTECPP_UPDATE }}"
+            },
             "last_check": "$(date -u)"
-
-
-
-
           }
           EOF
-
-
 
       - name: Commit and Push
         run: |
