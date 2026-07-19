@@ -9,8 +9,8 @@
     "update": "System: Active & Responsive"
   },
   "alexaxmusic": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "snowstrom": {
     "status": "OFFLINE",
@@ -21,8 +21,8 @@
     "update": "System: Active & Responsive"
   },
   "anarkanimusic": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "wordsolver": {
     "status": "ONLINE",
@@ -37,8 +37,8 @@
     "update": "System: Offline / Starting"
   },
   "alexamusicgo": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "ssnboy": {
     "status": "OFFLINE",
@@ -49,8 +49,8 @@
     "update": "System: Offline / Starting"
   },
   "teledrive": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "queennoxililly": {
     "status": "ONLINE",
@@ -60,5 +60,5 @@
     "status": "OFFLINE",
     "update": "System: Offline / Starting"
   },
-  "last_check": "Sun Jul 19 11:35:10 UTC 2026"
+  "last_check": "Sun Jul 19 12:35:34 UTC 2026"
 }
