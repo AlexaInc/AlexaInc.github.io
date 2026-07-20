@@ -37,8 +37,8 @@
     "update": "System: Offline / Starting"
   },
   "alexamusicgo": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "ssnboy": {
     "status": "OFFLINE",
@@ -60,5 +60,5 @@
     "status": "OFFLINE",
     "update": "System: Offline / Starting"
   },
-  "last_check": "Mon Jul 20 07:56:02 UTC 2026"
+  "last_check": "Mon Jul 20 10:59:12 UTC 2026"
 }
