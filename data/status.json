@@ -17,8 +17,8 @@
     "update": "System: Offline / Starting"
   },
   "quoteapi": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "anarkanimusic": {
     "status": "OFFLINE",
@@ -60,5 +60,5 @@
     "status": "OFFLINE",
     "update": "System: Offline / Starting"
   },
-  "last_check": "Wed Aug 12 16:35:13 UTC 2026"
+  "last_check": "Wed Aug 12 17:41:32 UTC 2026"
 }
