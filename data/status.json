@@ -9,8 +9,8 @@
     "update": "System: Active & Responsive"
   },
   "alexaxmusic": {
-    "status": "OFFLINE",
-    "update": "System: Offline / Starting"
+    "status": "ONLINE",
+    "update": "System: Active & Responsive"
   },
   "snowstrom": {
     "status": "OFFLINE",
@@ -21,8 +21,8 @@
     "update": "System: Active & Responsive"
   },
   "anarkanimusic": {
-    "status": "OFFLINE",
-    "update": "System: Offline / Starting"
+    "status": "ONLINE",
+    "update": "System: Active & Responsive"
   },
   "wordsolver": {
     "status": "ONLINE",
@@ -60,5 +60,5 @@
     "status": "OFFLINE",
     "update": "System: Offline / Starting"
   },
-  "last_check": "Thu Aug 13 13:22:28 UTC 2026"
+  "last_check": "Thu Aug 13 14:35:29 UTC 2026"
 }
