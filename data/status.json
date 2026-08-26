@@ -9,8 +9,8 @@
     "update": "System: Active & Responsive"
   },
   "alexaxmusic": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "snowstrom": {
     "status": "OFFLINE",
@@ -21,24 +21,24 @@
     "update": "System: Active & Responsive"
   },
   "anarkanimusic": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "wordsolver": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "aurudubot": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "wgsrobot": {
     "status": "OFFLINE",
     "update": "System: Offline / Starting"
   },
   "alexamusicgo": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "ssnboy": {
     "status": "OFFLINE",
@@ -49,16 +49,16 @@
     "update": "System: Offline / Starting"
   },
   "teledrive": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "queennoxililly": {
-    "status": "ONLINE",
-    "update": "System: Active & Responsive"
+    "status": "OFFLINE",
+    "update": "System: Offline / Starting"
   },
   "quotecpp": {
     "status": "OFFLINE",
     "update": "System: Offline / Starting"
   },
-  "last_check": "Wed Aug 26 07:32:12 UTC 2026"
+  "last_check": "Wed Aug 26 08:23:22 UTC 2026"
 }
